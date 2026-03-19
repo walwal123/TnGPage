@@ -1,194 +1,265 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Navbar from "@/components/navbar";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const historyData = [
   {
-    year: "2025",
+    year: "2008",
     events: [
-      { text: "삼성화재 최우수 손해사정법인(평가 1위)", company: "T&G" },
-      { text: "9월,10월 최우수 친절법인 선정(메리츠 서면심사)", company: "T&G" },
+      "T&G손해사정 설립",
+      "사업영역 - 1종(재물), 2종(해상), 3종(자동차대물), 4종(신체) 손해사정",
+      "고객사 - 흥국화재, 흥국생명",
     ],
-    position: "right",
   },
   {
-    year: "2024",
+    year: "2009",
     events: [
-      { text: "흥국화재 장기보상실 '2024년 인보험 서면심사' 최우수 법인 선정", company: "에이치앤티" },
-      { text: "삼성화재 우수손해사정", company: "T&G" },
+      "한화손보, AXA손보, 수협중앙회, 현대해상, 동부화재, MG손해보험, ACE손보, 더케이손보, 수협 손해사정위임계약 체결",
     ],
-    position: "left",
   },
   {
-    year: "2023",
-    events: [
-      { text: "우수손해사정 협력법인 감사패 수상(삼성화재 장기보험보상팀)", company: "T&G" },
-    ],
-    position: "right",
-  },
-  {
-    year: "2020",
-    events: [
-      { text: "1분기 품질관리 캠페인 우수 성과 달성", company: "에이치앤티" },
-      { text: "2분기 '품질관리 및 고객만족' 우수한 성과달성", company: "에이치앤티" },
-    ],
-    position: "left",
-  },
-  {
-    year: "2018",
-    events: [
-      { text: "흥국화재 전속 지급심사 법인 H&T손해사정(주) 분리 설립", company: "" },
-    ],
-    position: "right",
+    year: "2011",
+    events: ["농협손보, 새마을금고 손해사정위임계약 체결"],
   },
   {
     year: "2013",
     events: [
-      { text: "사내 전산망 및 서버(DB) 구축, 개인정보보호 시스템 도입으로 IT 기반 업무환경 구축", company: "" },
+      "농협생명 손해사정위임계약 체결",
+      "사내 전산인프라 구축",
+      "(자체 DB 및 개인정보보호 시스템 도입, 업무전산시스템 본격운영)",
     ],
-    position: "left",
   },
   {
-    year: "2008",
+    year: "2014",
+    events: ["메리츠화재, 롯데손보 손해사정위임계약 체결"],
+  },
+  {
+    year: "2015",
+    events: ["AIA손해보험 손해사정위임계약 체결"],
+  },
+  {
+    year: "2016",
+    events: ["삼성화재 손해사정위임계약 체결"],
+  },
+  {
+    year: "2018",
     events: [
-      { text: "T&G손해사정(주) 설립 및 금융감독원 1·2·4종 손해사정업 등록", company: "" },
+      "서면심사 전문 자매회사 H&T(에이치앤티)손해사정 설립",
+      "자체 소비자보호센터 개소",
     ],
-    position: "right",
+  },
+  {
+    year: "2019",
+    events: ["AIG손해보험 손해사정위임계약 체결"],
+  },
+  {
+    year: "2022",
+    events: [
+      "서면심사업무 본격진출",
+      "(인보험 - 메리츠화재, 재물/배상책임보험 - 메리츠화재, 흥국화재)",
+      "한국사회복지공제, 방산공제 손해사정위임계약 체결",
+      "자매회사 엔파비와 고객콜센터 운영 업무협약 체결",
+    ],
+  },
+  {
+    year: "2023",
+    events: [
+      "DB손해보험 손해사정위임계약 체결",
+      "인보험서면심사 확대 (고객사 메리츠화재, DB손보)",
+    ],
+  },
+  {
+    year: "2024",
+    events: [
+      "디지털손해사정업 본격진출",
+      "(AI디지털손해사정 전문회사 AIMS와 업무협약)",
+      "STARR Insurance 한국지점과 손해사정위임계약 체결",
+    ],
+  },
+  {
+    year: "2025",
+    events: [
+      "디지털손해사정 인보험서면심사 업무에 적용",
+      "(AIMS, T&G, H&T 컨소시움)",
+      "법무법인 도원과 업무협약 체결",
+      "중국 삼성재산유한공사와 손해사정위임계약 체결",
+    ],
+  },
+  {
+    year: "2026",
+    events: ["신한 EZ손해보험과 손해사정위임계약 체결"],
   },
 ];
 
 function TimelineItem({
   year,
   events,
-  position,
-  isLast = false,
+  isFirst,
+  isLast,
+  isHovered,
+  onHover,
+  onLeave,
 }: {
   year: string;
-  events: { text: string; company: string }[];
-  position: "left" | "right";
-  isLast?: boolean;
+  events: string[];
+  isFirst: boolean;
+  isLast: boolean;
+  isHovered: boolean;
+  onHover: () => void;
+  onLeave: () => void;
 }) {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
-    <div className="relative flex items-start">
-      {/* Left content */}
-      <div className={`w-1/2 pr-8 ${position === "left" ? "" : "invisible"}`}>
-        {position === "left" && (
-          <div className="text-right">
-            <h3 className="mb-2 text-2xl font-bold text-[#1a1a2e] md:text-3xl">{year}</h3>
-            {events.map((event, idx) => (
-              <p key={idx} className="text-sm leading-relaxed text-[#333] md:text-base">
-                {event.text}
-                {event.company && (
-                  <>
-                    {" - "}
-                    <span className="font-medium text-[#e87a1e]">{event.company}</span>
-                  </>
-                )}
-              </p>
-            ))}
-          </div>
+    <div
+      className="relative flex flex-shrink-0 flex-col items-center"
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
+    >
+      {/* Connecting lines - positioned outside the circle container */}
+      <div className="absolute top-8 flex w-full items-center md:top-10">
+        {/* Left line - hidden for first item */}
+        {!isFirst && (
+          <div className="absolute right-1/2 h-1 w-[calc(50%+48px)] bg-[#5a9bd4] md:w-[calc(50%+56px)]" />
         )}
-      </div>
-
-      {/* Center - Timeline dot */}
-      <div
-        className="relative z-10 flex-shrink-0"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        {/* Outer glow effect on hover */}
-        <div
-          className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-300 ${isHovered
-            ? "h-14 w-14 bg-gradient-to-br from-[#a8d4f5]/60 to-[#5a9bd4]/60"
-            : "h-0 w-0"
-            }`}
-        />
-        {/* Main circle */}
-        <div
-          className={`relative flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border-[3px] transition-all duration-300 ${isHovered
-            ? "border-[#5a9bd4] bg-gradient-to-br from-[#a8d4f5] to-[#5a9bd4]"
-            : "border-[#5a9bd4] bg-white"
-            }`}
-        />
+        {/* Right line - hidden for last item */}
         {!isLast && (
-          <div className="absolute left-1/2 top-8 w-0.5 h-45 -translate-x-1/2 bg-[#5a9bd4]" />
+          <div className="absolute left-1/2 h-1 w-[calc(50%+48px)] bg-[#5a9bd4] md:w-[calc(50%+56px)]" />
         )}
       </div>
 
-      {/* Right content */}
-      <div className={`w-1/2 pl-8 ${position === "right" ? "" : "invisible"}`}>
-        {position === "right" && (
-          <div className="text-left">
-            <h3 className="mb-2 text-2xl font-bold text-[#1a1a2e] md:text-3xl">{year}</h3>
-            {events.map((event, idx) => (
-              <p key={idx} className="text-sm leading-relaxed text-[#333] md:text-base">
-                {event.text}
-                {event.company && (
-                  <>
-                    {" - "}
-                    <span className="font-medium text-[#e87a1e]">{event.company}</span>
-                  </>
-                )}
-              </p>
-            ))}
-          </div>
-        )}
+      {/* Year circle with fill animation on hover */}
+      <div className="relative z-10 flex items-center justify-center pt-2">
+        {/* Circle with fill effect */}
+        <div
+          className={`relative flex h-16 w-16 items-center justify-center rounded-full border-4 transition-all duration-300 md:h-20 md:w-20 ${
+            isHovered
+              ? "border-[#e87a1e] bg-[#e87a1e] shadow-lg shadow-[#e87a1e]/30"
+              : "border-[#5a9bd4] bg-white"
+          }`}
+        >
+          <span
+            className={`text-lg transition-all duration-300 md:text-xl ${
+              isHovered ? "font-extrabold text-white" : "font-bold text-[#1a1a2e]"
+            }`}
+          >
+            {year}
+          </span>
+        </div>
+      </div>
+
+      {/* Events box */}
+      <div
+        className={`mt-4 w-52 rounded-lg border p-4 transition-all duration-300 md:w-64 ${
+          isHovered
+            ? "border-[#5a9bd4]/50 bg-[#5a9bd4]/10 shadow-lg"
+            : "border-[#5a9bd4]/30 bg-[#5a9bd4]/5"
+        }`}
+      >
+        {events.map((event, idx) => (
+          <p
+            key={idx}
+            className={`mb-2 text-xs leading-relaxed text-[#333] last:mb-0 md:text-sm ${
+              isHovered ? "font-semibold" : "font-normal"
+            }`}
+            style={{ wordBreak: "keep-all" }}
+          >
+            {event}
+          </p>
+        ))}
       </div>
     </div>
   );
 }
 
 export default function CompanyHistoryPage() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [hoveredYear, setHoveredYear] = useState<string | null>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = 300;
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-[280px] w-full">
+      <section className="relative flex h-[280px] w-full items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(/images/company/sean-buildings.jpg)" }}
         >
-          <div className="absolute inset-0 bg-[#1a1a2e]/50" />
+          <div className="absolute inset-0 bg-[#1a1a2e]/60" />
         </div>
-        <div className="relative z-10 flex h-full items-center justify-center">
-          <h1 className="text-3xl font-medium text-white md:text-4xl">{"업무경력"}</h1>
+        <div className="relative z-10 text-center">
+          <h1 className="text-3xl font-medium text-white md:text-4xl lg:text-5xl">업무경력</h1>
         </div>
       </section>
 
       {/* White gap */}
-      <div className="h-16 bg-white" />
+      <div className="h-32 bg-white" />
 
       {/* Timeline Section */}
-      <section className="bg-white px-8 py-16 md:px-16 lg:px-24">
-        <h2 className="mb-16 text-center text-3xl font-bold text-[#1a1a2e] md:text-4xl">
-          {"회사 연혁"}
+      <section className="bg-white px-8 py-16 md:px-16">
+        <h2 className="mb-4 text-center text-3xl font-bold text-[#1a1a2e] md:text-4xl">
+          회사 연혁
         </h2>
+        <p className="mb-12 text-center text-base text-[#666] md:text-lg" style={{ wordBreak: "keep-all" }}>
+          T&G손해사정 고속 성장의 비결은 동반성장에 대한 고객의 굳은 신뢰였습니다.
+        </p>
 
-        {/* Timeline */}
-        <div className="relative mx-auto max-w-4xl">
-          {/* Vertical line - from first dot to last dot */}
+        {/* Horizontal Timeline with scroll */}
+        <div className="relative mx-auto max-w-[calc(100%-100px)]">
+          {/* Scroll buttons - positioned outside the container */}
+          <button
+            onClick={() => scroll("left")}
+            className="absolute -left-14 top-10 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-[#5a9bd4] text-white shadow-lg transition-colors hover:bg-[#4a8bc4]"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            className="absolute -right-14 top-10 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-[#5a9bd4] text-white shadow-lg transition-colors hover:bg-[#4a8bc4]"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
 
-          {/* Timeline items */}
-          <div className="space-y-24">
-            {historyData.map((item, index) => (
-              <TimelineItem
-                key={item.year}
-                year={item.year}
-                events={item.events}
-                position={item.position as "left" | "right"}
-                isLast={index === historyData.length - 1}
-              />
-            ))}
+          {/* Scrollable container */}
+          <div
+            ref={scrollRef}
+            className="overflow-x-auto pb-8"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            <div className="relative min-w-max px-4">
+              {/* Timeline items */}
+              <div className="relative flex gap-6 md:gap-8">
+                {historyData.map((item, index) => (
+                  <TimelineItem
+                    key={item.year}
+                    year={item.year}
+                    events={item.events}
+                    isFirst={index === 0}
+                    isLast={index === historyData.length - 1}
+                    isHovered={hoveredYear === item.year}
+                    onHover={() => setHoveredYear(item.year)}
+                    onLeave={() => setHoveredYear(null)}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer spacing */}
-      <div className="h-20 bg-white" />
+      <div className="h-32 bg-white" />
     </main>
   );
 }

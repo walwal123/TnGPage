@@ -1,72 +1,100 @@
 "use client";
 
-import { Atom, CalendarCheck, Handshake, Globe } from "lucide-react";
-import { ArrowRight } from "lucide-react";
-
-const coreValues = [
-  {
-    icon: Atom,
-    titleEn: "Professionalism",
-    titleKo: "전문가 그룹",
-  },
-  {
-    icon: CalendarCheck,
-    titleEn: "Trust",
-    titleKo: "고객 신뢰",
-  },
-  {
-    icon: Handshake,
-    titleEn: "Innovation",
-    titleKo: "디지털 도약",
-  },
-  {
-    icon: Globe,
-    titleEn: "Growth",
-    titleKo: "신뢰와 함께 성장",
-  },
-];
+import { Handshake, Cpu, ShieldCheck, Plus } from "lucide-react";
 
 export default function SectionTwo() {
   return (
-    <div className="relative flex h-full w-full flex-col justify-between">
+    <div className="relative flex h-full w-full flex-col">
       {/* Background - nasa earth from space */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url(/images/section-3-bg.jpg)" }}
       >
-        <div className="absolute inset-0 bg-[#0a0a1a]/40" />
+        <div className="absolute inset-0 bg-[#1a1a2e]/60" />
       </div>
 
-      {/* Top text area */}
-      <div className="relative z-10 px-12 pt-32 md:px-20 lg:px-28">
-        <h2 className="mb-3 text-2xl font-medium leading-tight text-white md:text-3xl lg:text-4xl">
-          {'미래로, 세계로 향하는 손해사정의 기준'}
-        </h2>
-        <p className="text-lg italic text-white/60 md:text-xl" style={{ fontFamily: "Georgia, serif" }}>
-          {'T&G, Tomorrow and Global'}
-        </p>
-      </div>
+      {/* Content */}
+      <div className="relative z-10 flex h-full flex-col px-8 pt-28 md:px-16 md:pt-32">
+        {/* Top left text - original */}
+        <div className="mb-6 text-left">
+          <h2 className="mb-3 text-2xl font-medium leading-tight text-white md:text-3xl lg:text-4xl">
+            {'미래로, 세계로 향하는 손해사정의 기준'}
+          </h2>
+          <p className="text-lg italic text-white/60 md:text-xl" style={{ fontFamily: "Georgia, serif" }}>
+            {'T&G, Tomorrow and Global'}
+          </p>
+        </div>
 
-      {/* Bottom - core values */}
-      <div className="relative z-10 px-12 pb-20 md:px-20 lg:px-28">
-        <h3 className="mb-6 text-xl font-medium text-white md:text-2xl">
-          {'미래로 향하는 4개의 핵심가치'}
-        </h3>
+        {/* Center content */}
+        <div className="flex flex-1 flex-col items-center justify-center">
+          {/* Subtitle and title */}
+          <div className="mb-8 text-center md:mb-10">
+            <p className="mb-3 text-base text-white/70 md:text-lg">
+              {'고객의 신뢰와 최고의 전문성으로 미래를 만들어 갑니다.'}
+            </p>
+            <h2 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl">
+              <span className="text-[#e87a1e]">{'현재'}</span>
+              {'도 '}
+              <span className="text-[#e87a1e]">{'미래'}</span>
+              {'도 선택은 '}
+              <span className="text-[#e87a1e]">{'T&G'}</span>
+              {' 손해사정'}
+            </h2>
+          </div>
 
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          {coreValues.map((item) => (
-            <div
-              key={item.titleEn}
-              className="group flex flex-col items-center justify-between gap-5 rounded-xl border border-white/20 bg-gradient-to-b from-[#4a7ab3]/70 to-[#3a5a8a]/70 px-6 py-10 backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:from-[#5a8ac3]/80 hover:to-[#4a6a9a]/80"
-            >
-              <item.icon className="h-20 w-20 text-white/90" strokeWidth={1} />
-              <div className="text-center">
-                <p className="text-lg font-normal text-white md:text-xl">{item.titleEn}</p>
-                <p className="mt-2 text-base text-white/70">{item.titleKo}</p>
-              </div>
-              <ArrowRight className="h-6 w-6 text-white/50 transition-colors duration-200 group-hover:text-white/90" />
+        {/* Three circles with arrows */}
+        <div className="flex w-full max-w-6xl items-center justify-center gap-0">
+          {/* Trust Circle */}
+          <div className="flex flex-col items-center">
+            <div className="flex h-[200px] w-[200px] flex-col items-center justify-center rounded-full border-2 border-white/40 md:h-[280px] md:w-[280px] lg:h-[320px] lg:w-[320px]">
+              <Handshake className="mb-4 h-12 w-12 text-[#4a9eff] md:h-16 md:w-16 lg:h-20 lg:w-20" strokeWidth={1.2} />
+              <h3 className="text-xl font-semibold text-white md:text-2xl lg:text-3xl">{'Trust'}</h3>
+              <p className="mt-3 text-center text-xs leading-relaxed text-white/80 md:text-sm lg:text-base">
+                {'고객의 경험과'}
+                <br />
+                {'재선택으로 검증된'}
+                <br />
+                {'신뢰의 파트너'}
+              </p>
             </div>
-          ))}
+          </div>
+
+          {/* Plus 1 */}
+          <div className="z-10 -mx-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#333] md:-mx-5 md:h-12 md:w-12">
+            <Plus className="h-5 w-5 text-white md:h-6 md:w-6" />
+          </div>
+
+          {/* Professional Circle - dashed */}
+          <div className="flex flex-col items-center">
+            <div className="flex h-[200px] w-[200px] flex-col items-center justify-center rounded-full border-2 border-dashed border-white/40 md:h-[280px] md:w-[280px] lg:h-[320px] lg:w-[320px]">
+              <ShieldCheck className="mb-4 h-12 w-12 text-[#4a9eff] md:h-16 md:w-16 lg:h-20 lg:w-20" strokeWidth={1.2} />
+              <h3 className="text-lg font-semibold text-white md:text-xl lg:text-2xl">{'Professional'}</h3>
+              <p className="mt-3 text-center text-xs leading-relaxed text-white/80 md:text-sm lg:text-base">
+                {'믿고 맡길 수 있는'}
+                <br />
+                {'최고의 전문성'}
+              </p>
+            </div>
+          </div>
+
+          {/* Plus 2 */}
+          <div className="z-10 -mx-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#333] md:-mx-5 md:h-12 md:w-12">
+            <Plus className="h-5 w-5 text-white md:h-6 md:w-6" />
+          </div>
+
+          {/* Digital Circle */}
+          <div className="flex flex-col items-center">
+            <div className="flex h-[200px] w-[200px] flex-col items-center justify-center rounded-full border-2 border-white/40 md:h-[280px] md:w-[280px] lg:h-[320px] lg:w-[320px]">
+              <Cpu className="mb-4 h-12 w-12 text-[#4a9eff] md:h-16 md:w-16 lg:h-20 lg:w-20" strokeWidth={1.2} />
+              <h3 className="text-xl font-semibold text-white md:text-2xl lg:text-3xl">{'Digital'}</h3>
+              <p className="mt-3 text-center text-xs leading-relaxed text-white/80 md:text-sm lg:text-base">
+                {'AI 손해사정 영역의'}
+                <br />
+                {'개척'}
+              </p>
+            </div>
+          </div>
+          </div>
         </div>
       </div>
     </div>

@@ -6,15 +6,15 @@ export default function CompanyInfoPage() {
       <Navbar />
 
       {/* Section 1: Hero - 회사안내 */}
-      <section className="relative h-[280px] w-full">
+      <section className="relative flex h-[280px] w-full items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(/images/company/sean-buildings.jpg)" }}
         >
-          <div className="absolute inset-0 bg-[#1a1a2e]/50" />
+          <div className="absolute inset-0 bg-[#1a1a2e]/60" />
         </div>
-        <div className="relative z-10 flex h-full items-center justify-center pt-24">
-          <h1 className="text-4xl font-medium tracking-wide text-white md:text-5xl">
+        <div className="relative z-10 text-center">
+          <h1 className="text-3xl font-medium text-white md:text-4xl lg:text-5xl">
             {"회사안내"}
           </h1>
         </div>
@@ -22,13 +22,13 @@ export default function CompanyInfoPage() {
 
       {/* Section 2: Company Slogan */}
       <section className="bg-white py-20 text-center">
-        <p className="mb-4 text-lg text-[#5a9bd4]" style={{ fontFamily: "Georgia, serif" }}>
+        <p className="mb-4 text-lg text-[#5a9bd4] md:text-xl" style={{ fontFamily: "Georgia, serif" }}>
           {"Company Slogan"}
         </p>
-        <h2 className="text-2xl font-medium leading-relaxed text-[#1a1a2e] md:text-3xl">
-          {"대한민국 손해사정의 기준을 세우는"}
+        <h2 className="text-3xl font-medium leading-relaxed text-[#1a1a2e] md:text-4xl">
+          {"대한민국 손해사정의 기준을 만들어가는"}
           <br />
-          {"No1. 손해사정 파트너"}
+          {"Number 1 손해사정 파트너"}
         </h2>
       </section>
 
@@ -41,19 +41,18 @@ export default function CompanyInfoPage() {
           <div className="absolute inset-0 bg-[#3a3a5a]/40" />
         </div>
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-8 text-center">
-          <h3 className="mb-4 text-xl font-medium leading-relaxed text-white md:text-2xl lg:text-3xl">
-            {"객관적 기준과 전문 인력을 기반으로 한 정밀한 "}
-            <span className="text-[#f0c050]">{"가치평가"}</span>
-            {" 역량"}
+          <h3 className="mb-6 text-2xl font-medium leading-relaxed text-white md:text-3xl lg:text-4xl">
+            <span className="text-[#f0c050]">전문성</span>
+            으로 고객에 만족을 드립니다
           </h3>
-          <p className="text-sm text-white/70 md:text-base">
-            {'"정직한 평가, 든든한 동행" - T&G 손해사정'}
+          <p className="text-lg font-medium text-white md:text-xl lg:text-2xl">
+            &quot;고객 신뢰와 함께하는 든든한 동반자 T&amp;G손해사정&quot;
           </p>
         </div>
       </section>
 
-      {/* White gap */}
-      <div className="h-24 bg-white" />
+      {/* gap */}
+      <div className="h-96 bg-white" />
 
       {/* Section 4: Trust & Growth Values - Full width background with semi-transparent overlay box */}
       <section className="relative min-h-[500px] w-full">
@@ -115,7 +114,7 @@ export default function CompanyInfoPage() {
       </section>
 
       {/* White gap */}
-      <div className="h-24 bg-white" />
+      <div className="h-96 bg-white" />
 
       {/* Section 5: Overview */}
       <section className="relative w-full">
@@ -167,20 +166,27 @@ export default function CompanyInfoPage() {
       </section>
 
       {/* White gap */}
-      <div className="h-24 bg-white" />
+      <div className="h-32 bg-white" />
 
       {/* Section 6: 그룹 구조 */}
       <section className="bg-white px-8 py-20 md:px-16 lg:px-24">
-        <h2 className="mb-12 text-center text-3xl font-medium text-[#1a1a2e] md:text-4xl">
+        <h2 className="mb-4 text-center text-3xl font-medium text-[#1a1a2e] md:text-4xl">
           {"그룹 구조"}
         </h2>
+        <p className="mb-2 text-center text-lg font-medium text-[#1a1a2e] md:text-xl">
+          {"분야별 전문기업으로 손해사정업무를 리드하는 "}
+          <span className="text-[#e87a1e]">{"T&G손해사정 그룹"}</span>
+        </p>
+        <p className="mb-12 text-center text-sm text-[#666] md:text-base">
+          {"T&G손해사정, H&T손해사정, 엔파비는 분야별 전문성으로 고객의 최고 만족을 추구합니다"}
+        </p>
 
         {/* Organization Chart */}
         <div className="mx-auto max-w-4xl">
           {/* CEO */}
           <div className="mb-8 flex justify-center">
             <div className="rounded-md border-2 border-[#5a9bd4] bg-[#5a9bd4] px-12 py-3 text-center">
-              <span className="font-medium text-white">{"대표이사"}</span>
+              <span className="font-medium text-white">{"T&G손해사정 그룹"}</span>
             </div>
           </div>
 
@@ -200,49 +206,47 @@ export default function CompanyInfoPage() {
           {/* Three companies */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {/* T&G */}
-            <div className="flex flex-col items-center gap-3">
+            <div className="flex flex-col gap-3">
               <div className="w-full rounded-md border border-[#5a9bd4] bg-white px-6 py-3 text-center">
-                <span className="font-medium text-[#1a1a2e]">{"T&G"}</span>
+                <span className="font-medium text-[#1a1a2e]">{"T&G손해사정(주)"}</span>
               </div>
-              <div className="w-full rounded-md border border-[#5a9bd4] bg-[#e8f4fc] px-4 py-2 text-center">
-                <span className="text-sm text-[#1a1a2e]">{"인보험,물보험"}</span>
+              <div className="min-h-[80px] w-full rounded-md border border-[#5a9bd4] bg-[#e8f4fc] px-4 py-3 text-center">
+                <span className="text-sm leading-relaxed text-[#1a1a2e]">{"손해보험,생명보험, 보험계약자 등 열린고객사를 위한 손해사정 업무"}</span>
               </div>
-              <div className="w-full rounded-md border border-[#5a9bd4] bg-white px-4 py-3 text-center">
-                <span className="text-sm font-medium text-[#1a1a2e]">{"200명"}</span>
+              <div className="min-h-[60px] w-full rounded-md border border-[#5a9bd4] bg-white px-4 py-3 text-center">
+                <span className="text-sm text-[#1a1a2e]">{"서울, 수도권, 대전, 광주, 대구, 부산 등"}</span>
                 <br />
-                <span className="text-xs text-[#666]">{"(9개 지점)"}</span>
+                <span className="text-sm font-medium text-[#e87a1e]">{"전국 12개 사무실"}</span>
               </div>
             </div>
 
             {/* H&T */}
-            <div className="flex flex-col items-center gap-3">
+            <div className="flex flex-col gap-3">
               <div className="w-full rounded-md border border-[#5a9bd4] bg-white px-6 py-3 text-center">
-                <span className="font-medium text-[#1a1a2e]">{"H&T"}</span>
+                <span className="font-medium text-[#1a1a2e]">{"H&T손해사정(주)"}</span>
               </div>
-              <div className="w-full rounded-md border border-[#5a9bd4] bg-[#e8f4fc] px-4 py-2 text-center">
-                <span className="text-sm text-[#1a1a2e]">{"소액 보험금 서면심사"}</span>
+              <div className="min-h-[80px] w-full rounded-md border border-[#5a9bd4] bg-[#e8f4fc] px-4 py-3 text-center">
+                <span className="text-sm leading-relaxed text-[#1a1a2e]">{"지정 보험사의 서면심사 손해사정 전문 업무"}</span>
               </div>
-              <div className="w-full rounded-md border border-[#5a9bd4] bg-white px-4 py-3 text-center">
-                <span className="text-sm font-medium text-[#1a1a2e]">{"300명"}</span>
+              <div className="min-h-[60px] w-full rounded-md border border-[#5a9bd4] bg-white px-4 py-3 text-center">
+                <span className="text-sm text-[#1a1a2e]">{"서울, 인천, 대전, 광주, 부산 등"}</span>
                 <br />
-                <span className="text-xs text-[#666]">{"(5개 거점)"}</span>
+                <span className="text-sm font-medium text-[#e87a1e]">{"전국 6개 사무실"}</span>
               </div>
             </div>
 
             {/* 엔파비 */}
-            <div className="flex flex-col items-center gap-3">
+            <div className="flex flex-col gap-3">
               <div className="w-full rounded-md border border-[#5a9bd4] bg-white px-6 py-3 text-center">
                 <span className="font-medium text-[#1a1a2e]">{"엔파비"}</span>
               </div>
-              <div className="w-full rounded-md border border-[#5a9bd4] bg-[#e8f4fc] px-4 py-2 text-center">
-                <span className="text-sm text-[#1a1a2e]">{"헤드헌팅, 도급, 파견"}</span>
+              <div className="min-h-[80px] w-full rounded-md border border-[#5a9bd4] bg-[#e8f4fc] px-4 py-3 text-center">
+                <span className="text-sm leading-relaxed text-[#1a1a2e]">{"전문인 리쿠르팅, 도급, 파견, 콜센터 운영"}</span>
               </div>
-              <div className="w-full rounded-md border border-[#5a9bd4] bg-white px-4 py-3 text-center">
-                <span className="text-sm font-medium text-[#1a1a2e]">{"50명"}</span>
+              <div className="min-h-[60px] w-full rounded-md border border-[#5a9bd4] bg-white px-4 py-3 text-center">
+                <span className="text-sm text-[#1a1a2e]">{"서울"}</span>
                 <br />
-                <a href="https://www.nfaby.com" className="text-xs text-[#5a9bd4] hover:underline">
-                  {"https://www.nfaby.com"}
-                </a>
+                <span className="text-sm font-medium text-[#e87a1e]">{"50명"}</span>
               </div>
             </div>
           </div>
@@ -256,16 +260,9 @@ export default function CompanyInfoPage() {
               <div className="border-b border-[#5a9bd4] bg-white px-6 py-4 text-center">
                 <span className="text-xl font-medium text-[#1a1a2e]">{"T&G"}</span>
               </div>
-              <div className="bg-[#5a9bd4] px-6 py-6 text-center">
-                <p className="mb-3 text-sm leading-relaxed text-white">
-                  {"재물·배상책임·인보험"}
-                  <br />
-                  {"손해사정 및 서면심사"}
-                </p>
-                <p className="text-sm leading-relaxed text-white/80">
-                  {"현장조사 + 정밀심사"}
-                  <br />
-                  {"중심 핵심 조직"}
+              <div className="flex min-h-[160px] flex-col justify-center bg-[#5a9bd4] px-4 py-5 text-center">
+                <p className="text-xs leading-relaxed text-white">
+                  {"보험사고정보 입력 · 인보험서면심사 · 물보험서면심사 · 인보험현장조사 · 물보험현장조사 · 농작물보험 · 고객소비자보호센터"}
                 </p>
               </div>
             </div>
@@ -275,16 +272,9 @@ export default function CompanyInfoPage() {
               <div className="border-b border-[#5a9bd4] bg-white px-6 py-4 text-center">
                 <span className="text-xl font-medium text-[#1a1a2e]">{"H&T"}</span>
               </div>
-              <div className="bg-[#5a9bd4] px-6 py-6 text-center">
-                <p className="mb-3 text-sm leading-relaxed text-white">
-                  {"소액 보험금"}
-                  <br />
-                  {"서면심사 전문"}
-                </p>
-                <p className="text-sm leading-relaxed text-white/80">
-                  {"서울·인천·대전·광주·부산"}
-                  <br />
-                  {"거점 운영"}
+              <div className="flex min-h-[160px] flex-col justify-center bg-[#5a9bd4] px-4 py-5 text-center">
+                <p className="text-xs leading-relaxed text-white">
+                  {"보험사고정보입력 · 인보험서면심사"}
                 </p>
               </div>
             </div>
@@ -294,16 +284,9 @@ export default function CompanyInfoPage() {
               <div className="border-b border-[#5a9bd4] bg-white px-6 py-4 text-center">
                 <span className="text-xl font-medium text-[#1a1a2e]">{"엔파비"}</span>
               </div>
-              <div className="bg-[#5a9bd4] px-6 py-6 text-center">
-                <p className="mb-3 text-sm leading-relaxed text-white">
-                  {"콜센터 운영 및 보험 인력"}
-                  <br />
-                  {"리쿠르팅"}
-                </p>
-                <p className="text-sm leading-relaxed text-white/80">
-                  {"그룹 운영 인프라 및"}
-                  <br />
-                  {"인재 공급 허브"}
+              <div className="flex min-h-[160px] flex-col justify-center bg-[#5a9bd4] px-4 py-5 text-center">
+                <p className="text-xs leading-relaxed text-white">
+                  {"보험전문가 리쿠르팅 · 인력파견 및 관리 · 고객의 콜센터 수탁 운영"}
                 </p>
               </div>
             </div>

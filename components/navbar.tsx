@@ -10,22 +10,30 @@ const menuItems = [
       { name: "회사안내", href: "/company/info" },
       { name: "회사전문성", href: "/company/expertise" },
       { name: "회사연혁", href: "/company/history" },
+      { name: "오시는길", href: "/company/location" },
     ],
   },
   {
     label: "사업분야",
     subItems: [
       { name: "업무안내", href: "/business/overview" },
+      { name: "업무절차", href: "/service/process" },
     ],
   },
   {
-    label: "서비스 안내",
+    label: "지점현황",
     subItems: [
-      { name: "손해사정 절차", href: "/service/process" },
+      { name: "거점정보", href: "/branch/info" },
     ],
   },
   {
-    label: "인재채용",
+    label: "협력사",
+    subItems: [
+      { name: "협력사 현황", href: "/partners/status" },
+    ],
+  },
+  {
+    label: "채용정보",
     subItems: [
       { name: "인사시스템", href: "/recruit/system" },
       { name: "채용공고", href: "/recruit/jobs" },
@@ -72,20 +80,20 @@ export default function Navbar() {
                 isNavHovered ? "text-[#1a1a2e]" : "text-white"
               }`}
             >
-              {'T&G 손해사정 Group'}
+              {'T&G(티앤지) 손해사정'}
             </span>
           </a>
 
-          {/* Menu items */}
-          <div className="flex items-center gap-4">
+          {/* Menu items - use fixed width for each item */}
+          <div className="flex items-center">
             {menuItems.map((item) => (
               <div
                 key={item.label}
-                className="relative"
+                className="w-[120px] text-center"
                 onMouseEnter={() => setHoveredMenu(item.label)}
               >
                 <button
-                  className={`px-8 py-3 text-lg font-normal tracking-wide transition-colors duration-200 border-b-2 ${
+                  className={`w-full py-3 text-lg font-normal tracking-wide transition-colors duration-200 border-b-2 ${
                     hoveredMenu === item.label
                       ? isNavHovered
                         ? "text-[#e87a1e] border-[#e87a1e]"
@@ -110,43 +118,37 @@ export default function Navbar() {
         }`}
       >
         <div className="bg-white/95 backdrop-blur-sm border-t border-[#e5e5e5]">
-          <div className="px-6 py-5 lg:px-10">
-            <div className="flex items-start justify-end gap-4">
-              {menuItems.map((item) => (
+          <div className="flex justify-end px-6 py-5 lg:px-10">
+            {/* Use same fixed width as menu items */}
+            {menuItems.map((item) => (
+              <div
+                key={item.label}
+                className="w-[120px] text-center"
+                onMouseEnter={() => setHoveredMenu(item.label)}
+              >
                 <div
-                  key={item.label}
-                  className="w-[calc(theme(spacing.8)*2+theme(fontSize.lg))] px-8 text-center"
-                  style={{ minWidth: "140px" }}
-                  onMouseEnter={() => setHoveredMenu(item.label)}
+                  className={`flex flex-col gap-2 transition-opacity duration-200 ${
+                    hoveredMenu === item.label ? "opacity-100" : "opacity-40"
+                  }`}
                 >
-                  <div
-                    className={`flex flex-col gap-2 transition-opacity duration-200 ${
-                      hoveredMenu === item.label ? "opacity-100" : "opacity-40"
-                    }`}
-                  >
-                    {item.subItems.map((sub) => (
-                      <a
-                        key={sub.name}
-                        href={sub.href}
-                        className="whitespace-nowrap text-sm text-[#444] transition-colors duration-150 hover:text-[#e87a1e]"
-                      >
-                        {sub.name}
-                      </a>
-                    ))}
-                  </div>
+                  {item.subItems.map((sub) => (
+                    <a
+                      key={sub.name}
+                      href={sub.href}
+                      className="whitespace-nowrap text-sm text-[#444] transition-colors duration-150 hover:text-[#e87a1e]"
+                    >
+                      {sub.name}
+                    </a>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Bottom line accent */}
-      <div
-        className={`h-[2px] transition-colors duration-300 ${
-          isNavHovered ? "bg-transparent" : "bg-[#e87a1e]/60"
-        }`}
-      />
+      {/* Bottom line accent - removed */}
+      <div className="h-[2px] bg-transparent" />
     </nav>
   );
 }
