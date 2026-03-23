@@ -1,36 +1,39 @@
 "use client";
 
 import { FileCheck, Flame, Scale, HeartPulse, Wheat } from "lucide-react";
-
-const businessAreas = [
-  {
-    icon: FileCheck,
-    title: "간편 서면심사",
-    desc: "신속 심사 전문가와 디지털 손해사정사의 협업으로 인보험, 재물보험, 배상책임보험의 간편 서면심사를 빠르고 정확하게 처리합니다.",
-  },
-  {
-    icon: Flame,
-    title: "재물보험손해사정",
-    desc: "화재, 풍수해, 파손 등 재물보험 사고에 대해 분야별 전문가가 사고 원인과 손해액을 전문적으로 평가합니다.",
-  },
-  {
-    icon: Scale,
-    title: "배상책임/특종보험손해사정",
-    desc: "법률과 의료 지식을 갖춘 전문가가 각종 배상책임보험 사고의 책임 여부와 손해액을 공정하게 평가합니다.",
-  },
-  {
-    icon: HeartPulse,
-    title: "인보험손해사정",
-    desc: "전문 인력과 의료 협력 네트워크를 통해 상해, 질병, 후유장해 등 인보험 사고의 원인과 의료 적정성을 종합적으로 평가합니다.",
-  },
-  {
-    icon: Wheat,
-    title: "농작물보험",
-    desc: "농작물 피해, 농기계 사고, 가축 폐사 등 농업 재해로 발생한 실제 손해액을 전문가가 평가합니다.",
-  },
-];
+import { useLanguage } from "@/lib/language-context";
 
 export default function SectionThree() {
+  const { t } = useLanguage();
+
+  const businessAreas = [
+    {
+      icon: FileCheck,
+      title: t("section3.simple.title"),
+      desc: t("section3.simple.desc"),
+    },
+    {
+      icon: Flame,
+      title: t("section3.property.title"),
+      desc: t("section3.property.desc"),
+    },
+    {
+      icon: Scale,
+      title: t("section3.liability.title"),
+      desc: t("section3.liability.desc"),
+    },
+    {
+      icon: HeartPulse,
+      title: t("section3.personal.title"),
+      desc: t("section3.personal.desc"),
+    },
+    {
+      icon: Wheat,
+      title: t("section3.agriculture.title"),
+      desc: t("section3.agriculture.desc"),
+    },
+  ];
+
   return (
     <div className="relative flex h-full w-full flex-col">
       {/* Background - rodeo meeting room */}
@@ -46,19 +49,19 @@ export default function SectionThree() {
         {/* Top text area */}
         <div className="mb-10 text-center">
           <h1 className="mb-4 text-2xl font-medium leading-tight text-white md:text-3xl lg:text-4xl">
-            <span className="text-[#e87a1e]">{'T&G손해사정'}</span>
-            <span className="text-white">{'은 '}</span>
-            <span className="text-[#e87a1e]">{'손해보험'}</span>
-            <span className="text-white">{'과 '}</span>
-            <span className="text-[#e87a1e]">{'생명보험'}</span>
-            <span className="text-white">{' 손해사정업무의 전문회사 입니다'}</span>
+            <span className="text-[#e87a1e]">{t("section3.title.tng")}</span>
+            <span className="text-white">{t("section3.title.is")}</span>
+            <span className="text-[#e87a1e]">{t("section3.title.property")}</span>
+            <span className="text-white">{t("section3.title.and")}</span>
+            <span className="text-[#e87a1e]">{t("section3.title.life")}</span>
+            <span className="text-white">{t("section3.title.expert")}</span>
           </h1>
           <p className="mx-auto max-w-3xl text-base leading-relaxed text-white/80 md:text-lg">
-            {'각 '}
-            <span className="font-medium text-[#e87a1e]">{'분야별 전문 법인'}</span>
-            {'이 체계적인 역할 분담을 통해 '}
-            <span className="font-medium text-[#e87a1e]">{'최적의 서비스'}</span>
-            {'를 제공합니다.'}
+            {t("section3.subtitle.each")}
+            <span className="font-medium text-[#e87a1e]">{t("section3.subtitle.specialized")}</span>
+            {t("section3.subtitle.systematic")}
+            <span className="font-medium text-[#e87a1e]">{t("section3.subtitle.optimal")}</span>
+            {t("section3.subtitle.provides")}
           </p>
         </div>
 
@@ -81,7 +84,7 @@ export default function SectionThree() {
       {/* Footer */}
       <div className="relative z-10 bg-[#1a1a2e]/80 px-8 py-4 text-center">
         <p className="text-sm text-white/60">
-          &copy; {new Date().getFullYear()} T&G 손해사정 Group. All Rights Reserved.
+          &copy; {new Date().getFullYear()} {t("footer.copyright")}
         </p>
       </div>
     </div>

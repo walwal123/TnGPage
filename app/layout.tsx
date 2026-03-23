@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Noto_Sans_KR } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
 
 const notoSansKR = Noto_Sans_KR({ subsets: ["latin"], weight: ["300", "400", "500", "700", "900"] });
@@ -12,15 +13,15 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
+        url: '/icon.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '/icon.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
+        url: '/icon.png',
         type: 'image/svg+xml',
       },
     ],
@@ -42,7 +43,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${notoSansKR.className} antialiased`}>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

@@ -1,10 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Navbar from "@/components/navbar";
+import { useLanguage } from "@/lib/language-context";
 
 const domesticPartners = [
   { src: "/images/partners/samsung.png", alt: "삼성화재" },
   { src: "/images/partners/hyundai.png", alt: "현대해상" },
   { src: "/images/partners/kb.png", alt: "KB손해보험" },
+  { src: "/images/partners/db.png", alt: "DB손해보험" },
   { src: "/images/partners/meritz.png", alt: "메리츠화재" },
   { src: "/images/partners/hanwha.png", alt: "한화손해보험" },
   { src: "/images/partners/nh.png", alt: "NH농협손해보험" },
@@ -25,6 +29,8 @@ const foreignPartners = [
 ];
 
 export default function PartnersStatusPage() {
+  const { t } = useLanguage();
+
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
@@ -39,7 +45,7 @@ export default function PartnersStatusPage() {
         </div>
         <div className="relative z-10 text-center">
           <h1 className="text-3xl font-medium text-white md:text-4xl lg:text-5xl">
-            {"협력사 현황"}
+            {t("partners.status.hero")}
           </h1>
         </div>
       </section>
@@ -49,11 +55,13 @@ export default function PartnersStatusPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h3 className="mb-2 text-xl font-medium text-[#1a1a2e] md:text-2xl">
-              {"국내외 "}
-              <span className="text-[#e87a1e]">{"17"}</span>
-              {"개 보험사와의 전략적 위임 파트너십"}
+              {t("partners.status.title")}
+              {" "}
+              <span className="text-[#e87a1e]">{t("partners.status.count")}</span>
+              {" "}
+              {t("partners.status.partnership")}
             </h3>
-            <p className="text-sm text-[#666]">{"다수의 보험사가 선택한, 검증된 수행 역량"}</p>
+            <p className="text-sm text-[#666]">{t("partners.status.desc")}</p>
             <div className="mx-auto mt-4 h-px w-64 bg-[#e87a1e]" />
           </div>
 
@@ -61,7 +69,7 @@ export default function PartnersStatusPage() {
           <div className="mb-10">
             <div className="mb-4 flex items-center gap-2">
               <div className="h-4 w-1 bg-[#1a1a2e]" />
-              <span className="text-base font-medium text-[#1a1a2e]">{"국내"}</span>
+              <span className="text-base font-medium text-[#1a1a2e]">{t("partners.status.domestic")}</span>
             </div>
             <div className="grid grid-cols-3 gap-4 md:grid-cols-5">
               {domesticPartners.map((partner) => (
@@ -85,7 +93,7 @@ export default function PartnersStatusPage() {
           <div>
             <div className="mb-4 flex items-center gap-2">
               <div className="h-4 w-1 bg-[#1a1a2e]" />
-              <span className="text-base font-medium text-[#1a1a2e]">{"해외"}</span>
+              <span className="text-base font-medium text-[#1a1a2e]">{t("partners.status.foreign")}</span>
             </div>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
               {foreignPartners.map((partner) => (

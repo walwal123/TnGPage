@@ -4,6 +4,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import HeroSlider from "./hero-slider";
 import SectionTwo from "./section-two";
 import SectionThree from "./section-three";
+import { useLanguage } from "@/lib/language-context";
 
 const SECTIONS = 3;
 
@@ -11,6 +12,12 @@ export default function FullpageScroll() {
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { language } = useLanguage();
+
+  const sectionLabels = {
+    ko: ["메인 슬라이더", "사업분야", "핵심가치"],
+    en: ["Main Slider", "Business Areas", "Core Values"],
+  };
 
   const scrollToSection = useCallback(
     (index: number) => {
@@ -109,17 +116,17 @@ export default function FullpageScroll() {
         style={{ transform: `translateY(-${currentSection * 100}vh)` }}
       >
         {/* Section 1 - Hero Slider */}
-        <section className="h-screen w-full" aria-label="메인 슬라이더">
+        <section className="h-screen w-full" aria-label={sectionLabels[language][0]}>
           <HeroSlider />
         </section>
 
         {/* Section 2 - 사업분야 */}
-        <section className="h-screen w-full" aria-label="사업분야">
+        <section className="h-screen w-full" aria-label={sectionLabels[language][1]}>
           <SectionThree />
         </section>
 
         {/* Section 3 - 핵심가치 */}
-        <section className="h-screen w-full" aria-label="핵심가치">
+        <section className="h-screen w-full" aria-label={sectionLabels[language][2]}>
           <SectionTwo />
         </section>
       </div>
@@ -135,7 +142,7 @@ export default function FullpageScroll() {
                 ? "scale-125 border-[#e87a1e] bg-[#e87a1e]"
                 : "border-white/50 bg-transparent hover:border-white"
             }`}
-            aria-label={`섹션 ${i + 1}로 이동`}
+            aria-label={`${language === "ko" ? "섹션" : "Section"} ${i + 1}${language === "ko" ? "로 이동" : ""}`}
           />
         ))}
       </div>

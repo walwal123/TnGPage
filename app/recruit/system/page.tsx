@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import { FileText, Clock, Award, Users, User, UserCheck, Briefcase, Building, Crown } from "lucide-react";
 import Navbar from "@/components/navbar";
+import { useLanguage } from "@/lib/language-context";
 
 export default function HRSystemPage() {
+  const { t } = useLanguage();
+
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
@@ -11,14 +16,14 @@ export default function HRSystemPage() {
       <section className="relative h-[220px] w-full">
         <Image
           src="/images/recruit/mina-handshake.jpg"
-          alt="인사 시스템 배경"
+          alt={t("recruit.system.hero")}
           fill
           className="object-cover"
           priority
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-3xl font-medium text-white md:text-4xl">인사 시스템</h1>
+          <h1 className="text-3xl font-medium text-white md:text-4xl">{t("recruit.system.hero")}</h1>
         </div>
       </section>
 
@@ -26,16 +31,16 @@ export default function HRSystemPage() {
       <section className="px-4 py-16 md:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="mb-4 text-2xl font-bold text-[#1a1a2e] md:text-3xl">
-            투명한 기준, 공정한 성장
+            {t("recruit.system.title")}
           </h2>
           <p className="text-base text-[#666]">
-            티앤지는 연차가 아닌 
-            <span className="text-[#5a9bd4]"> 성과와 역량</span>
-            을 기준으로 평가하는
+            {t("recruit.system.desc1")}
+            <span className="text-[#5a9bd4]"> {t("recruit.system.performance")}</span>
+            {t("recruit.system.desc2")}
           </p>
           <p className="text-base text-[#666]">
-            <span className="text-[#5a9bd4]">능력 중심 인사 시스템</span>
-            을 운영합니다
+            <span className="text-[#5a9bd4]">{t("recruit.system.merit")}</span>
+            {t("recruit.system.desc3")}
           </p>
         </div>
       </section>
@@ -46,20 +51,20 @@ export default function HRSystemPage() {
         <div className="flex h-[350px] w-full items-center justify-center bg-[#4a4a4a] lg:w-1/2">
           <div className="px-8 text-center text-white">
             <p className="text-lg leading-relaxed md:text-xl">
-              티앤지는 직무별 
-              <span className="text-[#5a9bd4]"> 핵심성과지표(KPI)</span>
-              를 기반으로
+              {t("recruit.system.kpi.desc1")}
+              <span className="text-[#5a9bd4]"> {t("recruit.system.kpi.desc2")}</span>
+              {t("recruit.system.kpi.desc3")}
             </p>
             <p className="text-lg leading-relaxed md:text-xl">
-              개인의 업무 성과와 전문성을 
-              <span className="text-[#5a9bd4]"> 객관적으로 평가</span>
-              합니다.
+              {t("recruit.system.kpi.desc4")}
+              <span className="text-[#5a9bd4]"> {t("recruit.system.kpi.desc5")}</span>
+              {t("recruit.system.kpi.desc6")}
             </p>
             <p className="mt-4 text-lg leading-relaxed md:text-xl">
-              평가 기준과 결과는 투명하게 관리되며,
+              {t("recruit.system.kpi.transparent1")}
             </p>
             <p className="text-lg leading-relaxed md:text-xl">
-              성과는 보상과 승진에 직접적으로 반영됩니다.
+              {t("recruit.system.kpi.transparent2")}
             </p>
           </div>
         </div>
@@ -68,15 +73,15 @@ export default function HRSystemPage() {
         <div className="relative flex h-[350px] w-full items-center justify-center lg:w-1/2">
           <Image
             src="/images/recruit/jakub-chart.jpg"
-            alt="성과 평가 시스템"
+            alt={t("recruit.system.kpi.title")}
             fill
             className="object-cover"
           />
           <div className="absolute inset-0 bg-black/30" />
           <div className="relative z-10 px-8 text-right text-white">
             <h3 className="text-2xl font-bold md:text-3xl">
-              <span className="text-[#5a9bd4]">능력 위주</span>
-              의 성과 평가(KPI) 시스템
+              <span className="text-[#5a9bd4]">{t("recruit.system.kpi.title").split(" ")[0]}</span>
+              {" "}{t("recruit.system.kpi.title").split(" ").slice(1).join(" ")}
             </h3>
           </div>
         </div>
@@ -90,8 +95,7 @@ export default function HRSystemPage() {
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#f0f0f0]">
               <FileText className="h-8 w-8 text-[#666]" strokeWidth={1.5} />
             </div>
-            <p className="text-sm text-[#666]">손해사정 정확도,</p>
-            <p className="text-sm text-[#666]">심사 완성도</p>
+            <p className="text-sm text-[#666] whitespace-pre-line">{t("recruit.system.criteria1")}</p>
           </div>
 
           {/* Item 2 */}
@@ -99,8 +103,7 @@ export default function HRSystemPage() {
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#f0f0f0]">
               <Clock className="h-8 w-8 text-[#666]" strokeWidth={1.5} />
             </div>
-            <p className="text-sm text-[#666]">처리 속도,</p>
-            <p className="text-sm text-[#666]">일정 준수율</p>
+            <p className="text-sm text-[#666] whitespace-pre-line">{t("recruit.system.criteria2")}</p>
           </div>
 
           {/* Item 3 */}
@@ -108,8 +111,7 @@ export default function HRSystemPage() {
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#f0f0f0]">
               <Award className="h-8 w-8 text-[#666]" strokeWidth={1.5} />
             </div>
-            <p className="text-sm text-[#666]">자격, 교육 이수,</p>
-            <p className="text-sm text-[#666]">실무 숙련도</p>
+            <p className="text-sm text-[#666] whitespace-pre-line">{t("recruit.system.criteria3")}</p>
           </div>
 
           {/* Item 4 */}
@@ -117,8 +119,7 @@ export default function HRSystemPage() {
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#f0f0f0]">
               <Users className="h-8 w-8 text-[#666]" strokeWidth={1.5} />
             </div>
-            <p className="text-sm text-[#666]">협업, 책임감,</p>
-            <p className="text-sm text-[#666]">내부 기준 준수</p>
+            <p className="text-sm text-[#666] whitespace-pre-line">{t("recruit.system.criteria4")}</p>
           </div>
         </div>
       </section>
@@ -127,14 +128,14 @@ export default function HRSystemPage() {
       <section className="bg-white px-4 py-16 md:px-8">
         <div className="mx-auto max-w-5xl">
           <h2 className="mb-2 text-2xl font-bold text-[#1a1a2e] md:text-3xl">
-            직무별 명확한 승진 체계
+            {t("recruit.system.promotion.title")}
           </h2>
           <p className="mb-12 text-base text-[#666]">
-            티앤지는 직무와 역할에 따라 
-            <span className="text-[#5a9bd4]"> 단계별 성장 경로</span>
-            가 명확히 
-            <span className="text-[#5a9bd4]"> 설계</span>
-            되어 있습니다.
+            {t("recruit.system.promotion.desc1")}
+            <span className="text-[#5a9bd4]"> {t("recruit.system.promotion.desc2")}</span>
+            {t("recruit.system.promotion.desc3")}
+            <span className="text-[#5a9bd4]">{t("recruit.system.promotion.desc4")}</span>
+            {t("recruit.system.promotion.desc5")}
           </p>
 
           {/* Career Levels */}
@@ -150,7 +151,7 @@ export default function HRSystemPage() {
                 <div className="flex h-[100px] w-[100px] flex-col items-center justify-center rounded-full bg-[#5a9bd4]">
                   <User className="h-10 w-10 text-white" strokeWidth={1.5} />
                 </div>
-                <p className="mt-3 text-base font-medium text-[#1a1a2e]">사원</p>
+                <p className="mt-3 text-base font-medium text-[#1a1a2e]">{t("recruit.system.rank.staff")}</p>
               </div>
 
               {/* 대리 */}
@@ -166,7 +167,7 @@ export default function HRSystemPage() {
                 <div className="flex h-[100px] w-[100px] flex-col items-center justify-center rounded-full bg-[#5a9bd4]">
                   <UserCheck className="h-10 w-10 text-white" strokeWidth={1.5} />
                 </div>
-                <p className="mt-3 text-base font-medium text-[#1a1a2e]">대리</p>
+                <p className="mt-3 text-base font-medium text-[#1a1a2e]">{t("recruit.system.rank.associate")}</p>
               </div>
 
               {/* 과장 */}
@@ -185,7 +186,7 @@ export default function HRSystemPage() {
                 <div className="flex h-[100px] w-[100px] flex-col items-center justify-center rounded-full bg-[#5a9bd4]">
                   <Briefcase className="h-10 w-10 text-white" strokeWidth={1.5} />
                 </div>
-                <p className="mt-3 text-base font-medium text-[#1a1a2e]">과장</p>
+                <p className="mt-3 text-base font-medium text-[#1a1a2e]">{t("recruit.system.rank.manager")}</p>
               </div>
 
               {/* 차장 */}
@@ -207,7 +208,7 @@ export default function HRSystemPage() {
                 <div className="flex h-[100px] w-[100px] flex-col items-center justify-center rounded-full bg-[#5a9bd4]">
                   <Building className="h-10 w-10 text-white" strokeWidth={1.5} />
                 </div>
-                <p className="mt-3 text-base font-medium text-[#1a1a2e]">차장</p>
+                <p className="mt-3 text-base font-medium text-[#1a1a2e]">{t("recruit.system.rank.deputy")}</p>
               </div>
 
               {/* 부장 */}
@@ -232,7 +233,7 @@ export default function HRSystemPage() {
                 <div className="flex h-[100px] w-[100px] flex-col items-center justify-center rounded-full bg-[#5a9bd4]">
                   <Crown className="h-10 w-10 text-white" strokeWidth={1.5} />
                 </div>
-                <p className="mt-3 text-base font-medium text-[#1a1a2e]">부장</p>
+                <p className="mt-3 text-base font-medium text-[#1a1a2e]">{t("recruit.system.rank.director")}</p>
               </div>
             </div>
           </div>
@@ -240,14 +241,14 @@ export default function HRSystemPage() {
           {/* Bottom Message */}
           <div className="text-center">
             <p className="text-xl font-medium text-[#1a1a2e] md:text-2xl">
-              "공정한 
-              <span className="text-[#5a9bd4]"> 평가</span>
-              와 투명한 
-              <span className="text-[#5a9bd4]"> 보상</span>
+              "{t("recruit.system.bottom1")}
+              <span className="text-[#5a9bd4]"> {t("recruit.system.bottom.evaluation")}</span>
+              {t("recruit.system.bottom.and")}
+              <span className="text-[#5a9bd4]"> {t("recruit.system.bottom.reward")}</span>
               "
             </p>
             <p className="mt-2 text-xl font-medium text-[#1a1a2e] md:text-2xl">
-              실력 있는 사람이 성장하는 조직을 만듭니다
+              {t("recruit.system.bottom2")}
             </p>
           </div>
         </div>
