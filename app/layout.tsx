@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Noto_Sans_KR } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
 
 const notoSansKR = Noto_Sans_KR({ subsets: ["latin"], weight: ["300", "400", "500", "700", "900"] });
@@ -42,7 +43,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${notoSansKR.className} antialiased`}>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

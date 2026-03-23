@@ -3,8 +3,9 @@
 import { useRef, useState } from "react";
 import Navbar from "@/components/navbar";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/lib/language-context";
 
-const historyData = [
+const historyDataKo = [
   {
     year: "2008",
     events: [
@@ -93,6 +94,95 @@ const historyData = [
   },
 ];
 
+const historyDataEn = [
+  {
+    year: "2008",
+    events: [
+      "T&G Loss Adjustment Established",
+      "Business Areas - Type 1 (Property), Type 2 (Marine), Type 3 (Auto Property), Type 4 (Bodily) Loss Adjustment",
+      "Clients - Heungkuk Fire, Heungkuk Life",
+    ],
+  },
+  {
+    year: "2009",
+    events: [
+      "Signed loss adjustment delegation contracts with Hanwha Insurance, AXA Insurance, Suhyup, Hyundai Marine & Fire, Dongbu Insurance, MG Insurance, ACE Insurance, The-K Insurance",
+    ],
+  },
+  {
+    year: "2011",
+    events: ["Signed contracts with NH Insurance, Saemaul Geumgo"],
+  },
+  {
+    year: "2013",
+    events: [
+      "Signed contract with NH Life",
+      "Established internal IT infrastructure",
+      "(Introduced proprietary DB and privacy protection system, full operation of business computerization system)",
+    ],
+  },
+  {
+    year: "2014",
+    events: ["Signed contracts with Meritz Fire, Lotte Insurance"],
+  },
+  {
+    year: "2015",
+    events: ["Signed contract with AIA Insurance"],
+  },
+  {
+    year: "2016",
+    events: ["Signed contract with Samsung Fire & Marine"],
+  },
+  {
+    year: "2018",
+    events: [
+      "Established H&T Loss Adjustment, a sister company specializing in document review",
+      "Opened Consumer Protection Center",
+    ],
+  },
+  {
+    year: "2019",
+    events: ["Signed contract with AIG Insurance"],
+  },
+  {
+    year: "2022",
+    events: [
+      "Full-scale entry into document review business",
+      "(Personal Insurance - Meritz Fire, Property/Liability Insurance - Meritz Fire, Heungkuk Fire)",
+      "Signed contracts with Korea Social Welfare Mutual Aid, Defense Industry Mutual Aid",
+      "Business agreement with sister company Enpaby for customer call center operation",
+    ],
+  },
+  {
+    year: "2023",
+    events: [
+      "Signed contract with DB Insurance",
+      "Expanded personal insurance document review (Clients: Meritz Fire, DB Insurance)",
+    ],
+  },
+  {
+    year: "2024",
+    events: [
+      "Full-scale entry into digital loss adjustment",
+      "(Business agreement with AIMS, an AI digital loss adjustment company)",
+      "Signed contract with STARR Insurance Korea",
+    ],
+  },
+  {
+    year: "2025",
+    events: [
+      "Applied digital loss adjustment to personal insurance document review",
+      "(AIMS, T&G, H&T Consortium)",
+      "Business agreement with Dowon Law Firm",
+      "Signed contract with Samsung Property & Casualty China",
+    ],
+  },
+  {
+    year: "2026",
+    events: ["Signed contract with Shinhan EZ Insurance"],
+  },
+];
+
 function TimelineItem({
   year,
   events,
@@ -175,6 +265,9 @@ function TimelineItem({
 export default function CompanyHistoryPage() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [hoveredYear, setHoveredYear] = useState<string | null>(null);
+  const { t, language } = useLanguage();
+
+  const historyData = language === "ko" ? historyDataKo : historyDataEn;
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -199,7 +292,7 @@ export default function CompanyHistoryPage() {
           <div className="absolute inset-0 bg-[#1a1a2e]/60" />
         </div>
         <div className="relative z-10 text-center">
-          <h1 className="text-3xl font-medium text-white md:text-4xl lg:text-5xl">업무경력</h1>
+          <h1 className="text-3xl font-medium text-white md:text-4xl lg:text-5xl">{t("company.history.hero")}</h1>
         </div>
       </section>
 
@@ -209,10 +302,10 @@ export default function CompanyHistoryPage() {
       {/* Timeline Section */}
       <section className="bg-white px-8 py-16 md:px-16">
         <h2 className="mb-4 text-center text-3xl font-bold text-[#1a1a2e] md:text-4xl">
-          회사 연혁
+          {t("company.history.title")}
         </h2>
         <p className="mb-12 text-center text-base text-[#666] md:text-lg" style={{ wordBreak: "keep-all" }}>
-          T&G손해사정 고속 성장의 비결은 동반성장에 대한 고객의 굳은 신뢰였습니다.
+          {t("company.history.desc")}
         </p>
 
         {/* Horizontal Timeline with scroll */}

@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import { ChevronRight, ChevronDown, ChevronLeft, UserPlus, FileSearch, Building2, ClipboardCheck, Calculator, FileCheck } from "lucide-react";
 import Navbar from "@/components/navbar";
+import { useLanguage } from "@/lib/language-context";
 
 export default function ServiceProcessPage() {
+  const { t } = useLanguage();
+
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
@@ -10,14 +15,14 @@ export default function ServiceProcessPage() {
       <section className="relative h-[220px] w-full">
         <Image
           src="/images/service/kaja-info.jpg"
-          alt="서비스 안내 배경"
+          alt={t("service.process.hero")}
           fill
           className="object-cover"
           priority
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-3xl font-medium text-white md:text-4xl">서비스 안내</h1>
+          <h1 className="text-3xl font-medium text-white md:text-4xl">{t("service.process.hero")}</h1>
         </div>
       </section>
 
@@ -27,10 +32,10 @@ export default function ServiceProcessPage() {
           {/* Section Title */}
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-2xl font-semibold text-[#1a1a2e] md:text-3xl">
-              손해사정 절차 안내
+              {t("service.process.title")}
             </h2>
             <p className="text-base text-[#666]">
-              보험 사고 발생 시, 손해사정은 이렇게 진행됩니다
+              {t("service.process.subtitle")}
             </p>
           </div>
 
@@ -41,8 +46,8 @@ export default function ServiceProcessPage() {
               <div className="mb-4">
                 <UserPlus className="h-14 w-14 text-[#333]" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">사고 접수</h3>
-              <p className="text-sm text-[#666]">보험사 또는 고객으로부터 사고 및 보험금 청구 접수</p>
+              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">{t("service.process.step1.title")}</h3>
+              <p className="text-sm text-[#666]">{t("service.process.step1.desc")}</p>
             </div>
 
             {/* Arrow */}
@@ -55,8 +60,8 @@ export default function ServiceProcessPage() {
               <div className="mb-4">
                 <FileSearch className="h-14 w-14 text-[#333]" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">자료 검토 및 사실 확인</h3>
-              <p className="text-sm text-[#666]">청구 서류 및 사고 사실관계 검토</p>
+              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">{t("service.process.step2.title")}</h3>
+              <p className="text-sm text-[#666]">{t("service.process.step2.desc")}</p>
             </div>
 
             {/* Arrow */}
@@ -69,8 +74,8 @@ export default function ServiceProcessPage() {
               <div className="mb-4">
                 <Building2 className="h-14 w-14 text-[#333]" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">현장·전문 조사</h3>
-              <p className="text-sm text-[#666]">필요 시 현장 조사, 의료·기술 자문 수행</p>
+              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">{t("service.process.step3.title")}</h3>
+              <p className="text-sm text-[#666]">{t("service.process.step3.desc")}</p>
             </div>
           </div>
 
@@ -97,8 +102,8 @@ export default function ServiceProcessPage() {
               <div className="mb-4">
                 <FileCheck className="h-14 w-14 text-[#333]" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">결과 보고 및 지급 검토</h3>
-              <p className="text-sm text-[#666]">손해사정 결과 보고 및 보험금 지급 판단 지원</p>
+              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">{t("service.process.step6.title")}</h3>
+              <p className="text-sm text-[#666]">{t("service.process.step6.desc")}</p>
             </div>
 
             {/* Arrow */}
@@ -111,8 +116,8 @@ export default function ServiceProcessPage() {
               <div className="mb-4">
                 <Calculator className="h-14 w-14 text-[#333]" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">보험금 산정</h3>
-              <p className="text-sm text-[#666]">약관과 기준에 따른 합리적 보험금 산정</p>
+              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">{t("service.process.step5.title")}</h3>
+              <p className="text-sm text-[#666]">{t("service.process.step5.desc")}</p>
             </div>
 
             {/* Arrow */}
@@ -125,8 +130,8 @@ export default function ServiceProcessPage() {
               <div className="mb-4">
                 <ClipboardCheck className="h-14 w-14 text-[#333]" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">손해 및 책임 분석</h3>
-              <p className="text-sm text-[#666]">손해 범위, 책임 여부, 지급 사유 분석</p>
+              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">{t("service.process.step4.title")}</h3>
+              <p className="text-sm text-[#666]">{t("service.process.step4.desc")}</p>
             </div>
           </div>
         </div>
@@ -136,19 +141,19 @@ export default function ServiceProcessPage() {
       <section className="bg-[#f5a623] px-4 py-12 md:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-xl font-medium text-white md:text-2xl">
-            <span className="text-[#5a9bd4]">인보험</span>
+            <span className="text-[#5a9bd4]">{t("service.process.banner.personal")}</span>
             ·
-            <span className="text-[#5a9bd4]">재물보험</span>
+            <span className="text-[#5a9bd4]">{t("service.process.banner.property")}</span>
             ·
-            <span className="text-[#5a9bd4]">배상책임보험</span>
-            까지,
+            <span className="text-[#5a9bd4]">{t("service.process.banner.liability")}</span>
+            {t("service.process.banner.until")}
           </p>
           <p className="mt-2 text-xl font-medium text-white md:text-2xl">
-            모든 손해사정은 
-            <span className="font-bold"> 동일한 원칙</span>
-            과 
-            <span className="font-bold"> 기준</span>
-            으로 진행됩니다
+            {t("service.process.banner.all")}
+            <span className="font-bold"> {t("service.process.banner.same")}</span>
+            {t("service.process.banner.and")}
+            <span className="font-bold"> {t("service.process.banner.standard")}</span>
+            {t("service.process.banner.processed")}
           </p>
         </div>
       </section>

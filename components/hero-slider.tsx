@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { ShieldCheck, HeartPulse, HardHat, Award } from "lucide-react";
+import { useLanguage } from "@/lib/language-context";
 
 const TOTAL_SLIDES = 5;
 const AUTO_INTERVAL = 5000;
@@ -9,6 +10,7 @@ const AUTO_INTERVAL = 5000;
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const { t } = useLanguage();
 
   const goToSlide = useCallback(
     (index: number) => {
@@ -31,23 +33,19 @@ export default function HeroSlider() {
     return () => clearInterval(timer);
   }, [nextSlide]);
 
-  // Slide 1 text content - stored as variables for encoding stability
-  const slideOneTitle = String.raw`대한민국 손해사정의 기준을 세우고 미래를 준비하는 당신의 든든한 손해사정 파트너`;
-  const slideOneQuote = String.raw`전문성의 깊이가 손해사정 결과의 차이를 만듭니다`;
-
   return (
     <div className="relative h-full w-full overflow-hidden">
       {/* Slide 1 */}
       <SlideWrapper index={0} current={currentSlide} bgImage="/images/slide-1.jpg" overlayColor="bg-[#1a1a2e]/50">
         <div className="flex h-full flex-col justify-center px-12 md:px-20 lg:px-28">
           <p className="mb-4 text-xl italic text-white/80 md:text-2xl lg:text-3xl" style={{ fontFamily: "Georgia, serif" }}>
-            Tomorrow &amp; Global
+            {t("hero.slide1.tagline")}
           </p>
           <h2 className="mb-2 text-xl font-normal leading-tight text-white md:text-2xl lg:text-3xl">
-            {slideOneTitle}, <span className="text-[#e87a1e]">T&amp;G</span> 손해사정
+            {t("hero.slide1.title")}, <span className="text-[#e87a1e]">T&amp;G</span> {t("nav.logo").split("T&G")[1] || "손해사정"}
           </h2>
           <h1 className="text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl xl:text-5xl">
-            &ldquo;<span className="text-[#e87a1e]">{slideOneQuote.split("가")[0]}</span>가{slideOneQuote.split("가").slice(1).join("가")}&rdquo;
+            &ldquo;<span className="text-[#e87a1e]">{t("hero.slide1.quote").split(" ")[0]}</span> {t("hero.slide1.quote").split(" ").slice(1).join(" ")}&rdquo;
           </h1>
         </div>
       </SlideWrapper>
@@ -57,24 +55,22 @@ export default function HeroSlider() {
         <div className="flex h-full flex-col px-12 pt-32 pb-16 md:px-20 lg:px-28">
           <div>
             <h1 className="mb-4 text-3xl font-medium leading-tight text-white md:text-4xl lg:text-5xl">
-              고객의 믿음과 전문성으로 고객과 함께한 성장 역사
+              {t("hero.slide2.title")}
             </h1>
             <p className="max-w-4xl text-sm leading-relaxed text-white/80 md:text-base lg:text-lg">
-              손해사정분야 최고의 전문성으로 국내외 <span className="text-[#e87a1e] font-medium">18개 보험사</span> 및 <span className="text-[#e87a1e] font-medium">협회/공제기관</span> 고객사들과 함께 하였습니다.
+              {t("hero.slide2.desc")} <span className="text-[#e87a1e] font-medium">{t("hero.slide2.insurers")}</span> {t("hero.slide2.associations").split("/")[0] && <span className="text-[#e87a1e] font-medium">{t("hero.slide2.associations")}</span>} {t("hero.slide2.together")}
             </p>
           </div>
           <div className="flex-1" />
           <div className="mb-4">
             <p className="mb-4 text-2xl font-medium text-white md:text-3xl">
-              <span className="text-[#e87a1e]">18+</span> 국내 보험사 및 공제기관 협력
+              <span className="text-[#e87a1e]">18+</span> {t("hero.slide2.partnership")}
             </p>
-            <p className="text-base leading-relaxed text-white/80 md:text-lg lg:text-xl">
-              삼성화재 · KB손해보험 · 메리츠화재 · 현대해상 · DB손해보험 · NH농협손해보험<br />
-              한화손해보험 · 롯데손해보험 · AIG · STARR Insurance<br />
-              수협 · 한국사회복지공제회 · 방산공제
+            <p className="text-base leading-relaxed text-white/80 md:text-lg lg:text-xl whitespace-pre-line">
+              {t("hero.slide2.partners")}
             </p>
             <a href="/partners/status" className="mt-3 inline-block text-sm text-white/60 transition-colors hover:text-[#e87a1e]">
-              그 외 다수 보험사 자세히보기 &rarr;
+              {t("hero.slide2.more")} &rarr;
             </a>
           </div>
         </div>
@@ -86,19 +82,18 @@ export default function HeroSlider() {
           <div className="mx-auto w-full max-w-6xl rounded-lg bg-[#5a5a5a]/85 px-10 py-10 backdrop-blur-sm md:px-16 md:py-12 lg:px-20 lg:py-14">
             <div className="mb-8 text-center md:mb-10">
               <h1 className="mb-5 text-2xl font-medium text-white md:text-3xl lg:text-4xl xl:text-5xl">
-                분야별 <span className="text-[#e87a1e]">전문 자격</span>을 갖춘 손해사정 전문가 그룹
+                {t("hero.slide3.title").split("전문 자격")[0]}<span className="text-[#e87a1e]">{t("hero.slide3.title").includes("Professional") ? "Professional Qualifications" : "전문 자격"}</span>{t("hero.slide3.title").split("전문 자격")[1] || t("hero.slide3.title").split("Professional Qualifications")[1] || ""}
               </h1>
-              <p className="text-base leading-relaxed text-white/80 md:text-lg lg:text-xl">
-                손해사정, 의료, 건축, 기계, 자동차 분야 전문 자격 보유 인력이<br />
-                협업하여 보다 정교한 손해사정 서비스를 수행합니다.
+              <p className="text-base leading-relaxed text-white/80 md:text-lg lg:text-xl whitespace-pre-line">
+                {t("hero.slide3.desc")}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-10 lg:gap-12">
               {[
-                { icon: ShieldCheck, title: "손해사정사", desc: "재물손해사정사\n신체손해사정사\n자동차손해사정사\n농작물손해평가사\n손해사정보조인" },
-                { icon: HeartPulse, title: "의료/법률 등 전문가", desc: "주요병원 의료전문 자문단\n간호사\n보험전문 법무법인 협업\n디지털손해사정 전문회사 협업" },
-                { icon: HardHat, title: "기술/공학전문가", desc: "건축/기계등 공학전공/자격자\n자동차기능전공/자격자\n보험금융공학전공자" },
-                { icon: Award, title: "국제인증자격", desc: "미국 화재폭발조사관(CFEI)\n미국 보험심사역(CPCU)\n미국 손해사정심사역(AIC)" },
+                { icon: ShieldCheck, title: t("hero.slide3.adjuster.title"), desc: t("hero.slide3.adjuster.desc") },
+                { icon: HeartPulse, title: t("hero.slide3.medical.title"), desc: t("hero.slide3.medical.desc") },
+                { icon: HardHat, title: t("hero.slide3.tech.title"), desc: t("hero.slide3.tech.desc") },
+                { icon: Award, title: t("hero.slide3.intl.title"), desc: t("hero.slide3.intl.desc") },
               ].map((item) => (
                 <div key={item.title} className="flex flex-col items-center gap-4 text-center">
                   <div className="flex h-24 w-24 items-center justify-center md:h-28 md:w-28 lg:h-32 lg:w-32">
@@ -118,22 +113,21 @@ export default function HeroSlider() {
         <div className="flex h-full flex-col px-12 pt-32 pb-16 md:px-20 lg:px-28">
           <div>
             <h1 className="mb-4 text-3xl font-medium leading-tight text-white md:text-4xl lg:text-5xl">
-              전국 단위 손해사정 수행 체계
+              {t("hero.slide4.title")}
             </h1>
-            <p className="max-w-xl text-sm leading-relaxed text-white/80 md:text-base">
-              전국 단위 위임 수행이 가능한 조직 인프라를 기반으로<br />
-              안정적인 손해사정 서비스를 제공합니다.
+            <p className="max-w-xl text-sm leading-relaxed text-white/80 md:text-base whitespace-pre-line">
+              {t("hero.slide4.desc")}
             </p>
           </div>
           <div className="flex-1" />
           <div className="mb-4">
             <p className="text-2xl font-normal text-white md:text-3xl">
-              전국 <span className="font-medium text-[#e87a1e]">12</span>개 지점과 사무소, <span className="font-medium text-[#e87a1e]">500</span>여명의 전문가에 의한 손해사정업무 제공
+              {t("hero.slide4.network")} <span className="font-medium text-[#e87a1e]">12</span>{t("hero.slide4.branches")} <span className="font-medium text-[#e87a1e]">500</span>{t("hero.slide4.experts")}
             </p>
             <p className="mt-2 text-sm text-white/60 md:text-base">
-              (서울 종로, 서울 영등포, 인천, 안양, 남양주, 원주, 대전, 광주, 전주, 부산, 대구, 창원){" "}
+              {t("hero.slide4.locations")}{" "}
               <a href="/company/expertise#infrastructure" className="text-white/50 transition-colors hover:text-[#e87a1e]">
-                자세히보기 &rarr;
+                {t("hero.slide4.more")} &rarr;
               </a>
             </p>
           </div>
@@ -144,18 +138,18 @@ export default function HeroSlider() {
       <SlideWrapper index={4} current={currentSlide} bgImage="/images/slide-5.jpg" overlayColor="bg-[#2a2a2a]/65">
         <div className="flex h-full flex-col items-center justify-center px-12 md:px-20 lg:px-28">
           <h1 className="mb-8 text-center text-3xl font-medium leading-tight text-white md:text-4xl lg:text-5xl">
-            전문 파트너와 함께 최고의 손해사정회사로 미래를 준비합니다
+            {t("hero.slide5.title")}
           </h1>
           <div className="max-w-4xl text-center">
             <p className="text-xl leading-relaxed text-white/90 md:text-2xl lg:text-3xl">
-              <span className="font-medium text-[#e87a1e]">디지털 기술(AIMS)</span>에 <span className="font-medium text-[#4a9eff]">법률적 전문성(법무법인 도원)</span>을 더했습니다.
+              <span className="font-medium text-[#e87a1e]">{t("hero.slide5.digital")}</span>{t("hero.slide5.added")} <span className="font-medium text-[#4a9eff]">{t("hero.slide5.legal")}</span>{t("hero.slide5.combined")}
             </p>
             <p className="mt-4 text-lg leading-relaxed text-white/80 md:text-xl lg:text-2xl">
-              가장 스마트하고 믿음직한 파트너, 티앤지손해사정이 앞서 나갑니다.
+              {t("hero.slide5.tagline")}
             </p>
             <div className="mt-10">
               <p className="mb-6 text-center text-lg font-medium tracking-wider text-white/70 md:text-xl">
-                Trusted Partners
+                {t("hero.slide5.partners")}
               </p>
               <div className="flex items-center justify-center gap-6 md:gap-10">
                 <div className="flex items-center">

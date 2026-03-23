@@ -2,50 +2,61 @@
 
 import { useState } from "react";
 import Image from "next/image";
-
-const menuItems = [
-  {
-    label: "회사소개",
-    subItems: [
-      { name: "회사안내", href: "/company/info" },
-      { name: "회사전문성", href: "/company/expertise" },
-      { name: "회사연혁", href: "/company/history" },
-      { name: "오시는길", href: "/company/location" },
-    ],
-  },
-  {
-    label: "사업분야",
-    subItems: [
-      { name: "업무안내", href: "/business/overview" },
-      { name: "업무절차", href: "/service/process" },
-    ],
-  },
-  {
-    label: "지점현황",
-    subItems: [
-      { name: "거점정보", href: "/branch/info" },
-    ],
-  },
-  {
-    label: "협력사",
-    subItems: [
-      { name: "협력사 현황", href: "/partners/status" },
-    ],
-  },
-  {
-    label: "채용정보",
-    subItems: [
-      { name: "인사시스템", href: "/recruit/system" },
-      { name: "채용공고", href: "/recruit/jobs" },
-    ],
-  },
-];
+import { useLanguage } from "@/lib/language-context";
 
 export default function Navbar() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [isNavHovered, setIsNavHovered] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
+
+  const menuItems = [
+    {
+      label: t("nav.company"),
+      key: "company",
+      subItems: [
+        { name: t("nav.company.info"), href: "/company/info" },
+        { name: t("nav.company.expertise"), href: "/company/expertise" },
+        { name: t("nav.company.history"), href: "/company/history" },
+        { name: t("nav.company.location"), href: "/company/location" },
+      ],
+    },
+    {
+      label: t("nav.business"),
+      key: "business",
+      subItems: [
+        { name: t("nav.business.overview"), href: "/business/overview" },
+        { name: t("nav.business.process"), href: "/service/process" },
+      ],
+    },
+    {
+      label: t("nav.branch"),
+      key: "branch",
+      subItems: [
+        { name: t("nav.branch.info"), href: "/branch/info" },
+      ],
+    },
+    {
+      label: t("nav.partners"),
+      key: "partners",
+      subItems: [
+        { name: t("nav.partners.status"), href: "/partners/status" },
+      ],
+    },
+    {
+      label: t("nav.recruit"),
+      key: "recruit",
+      subItems: [
+        { name: t("nav.recruit.system"), href: "/recruit/system" },
+        { name: t("nav.recruit.jobs"), href: "/recruit/jobs" },
+      ],
+    },
+  ];
 
   const showSubmenu = hoveredMenu !== null;
+
+  const toggleLanguage = () => {
+    setLanguage(language === "ko" ? "en" : "ko");
+  };
 
   return (
     <nav
@@ -80,33 +91,50 @@ export default function Navbar() {
                 isNavHovered ? "text-[#1a1a2e]" : "text-white"
               }`}
             >
-              {'T&G(티앤지) 손해사정'}
+              {t("nav.logo")}
             </span>
           </a>
 
-          {/* Menu items - use fixed width for each item */}
-          <div className="flex items-center">
-            {menuItems.map((item) => (
-              <div
-                key={item.label}
-                className="w-[120px] text-center"
-                onMouseEnter={() => setHoveredMenu(item.label)}
-              >
-                <button
-                  className={`w-full py-3 text-lg font-normal tracking-wide transition-colors duration-200 border-b-2 ${
-                    hoveredMenu === item.label
-                      ? isNavHovered
-                        ? "text-[#e87a1e] border-[#e87a1e]"
-                        : "text-[#f0a050] border-[#f0a050]"
-                      : isNavHovered
-                      ? "text-[#1a1a2e] border-transparent hover:text-[#e87a1e]"
-                      : "text-[#6eaaef] border-transparent hover:text-white"
-                  }`}
+          {/* Menu items + Language Toggle */}
+          <div className="flex items-center gap-4">
+            {/* Menu items */}
+            <div className="flex items-center">
+              {menuItems.map((item) => (
+                <div
+                  key={item.key}
+                  className="w-[120px] text-center"
+                  onMouseEnter={() => setHoveredMenu(item.key)}
                 >
-                  {item.label}
-                </button>
-              </div>
-            ))}
+                  <button
+                    className={`w-full py-3 text-lg font-normal tracking-wide transition-colors duration-200 border-b-2 ${
+                      hoveredMenu === item.key
+                        ? isNavHovered
+                          ? "text-[#e87a1e] border-[#e87a1e]"
+                          : "text-[#f0a050] border-[#f0a050]"
+                        : isNavHovered
+                        ? "text-[#1a1a2e] border-transparent hover:text-[#e87a1e]"
+                        : "text-[#6eaaef] border-transparent hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            {/* Language Toggle Button */}
+            <button
+              onClick={toggleLanguage}
+              className={`ml-4 flex items-center rounded px-2 py-1 text-xs font-medium transition-all duration-200 ${
+                isNavHovered
+                  ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  : "bg-white/20 text-white/90 hover:bg-white/30"
+              }`}
+            >
+              <span className={language === "ko" ? "font-bold" : "opacity-60"}>한글</span>
+              <span className="mx-1 opacity-40">/</span>
+              <span className={language === "en" ? "font-bold" : "opacity-60"}>EN</span>
+            </button>
           </div>
         </div>
       </div>
@@ -122,13 +150,13 @@ export default function Navbar() {
             {/* Use same fixed width as menu items */}
             {menuItems.map((item) => (
               <div
-                key={item.label}
+                key={item.key}
                 className="w-[120px] text-center"
-                onMouseEnter={() => setHoveredMenu(item.label)}
+                onMouseEnter={() => setHoveredMenu(item.key)}
               >
                 <div
                   className={`flex flex-col gap-2 transition-opacity duration-200 ${
-                    hoveredMenu === item.label ? "opacity-100" : "opacity-40"
+                    hoveredMenu === item.key ? "opacity-100" : "opacity-40"
                   }`}
                 >
                   {item.subItems.map((sub) => (
@@ -143,6 +171,8 @@ export default function Navbar() {
                 </div>
               </div>
             ))}
+            {/* Spacer for language button */}
+            <div className="w-[60px]" />
           </div>
         </div>
       </div>
