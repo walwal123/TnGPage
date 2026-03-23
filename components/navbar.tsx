@@ -75,9 +75,9 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="flex h-24 items-center justify-between px-6 lg:px-10">
-          {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
+        <div className="relative flex h-24 items-center px-6 lg:px-10">
+          {/* Logo - absolute left */}
+          <a href="/" className="absolute left-6 flex items-center gap-2 lg:left-10">
             <Image
               src="/images/tng-logo.png"
               alt="T&G 손해사정 Group 로고"
@@ -95,47 +95,44 @@ export default function Navbar() {
             </span>
           </a>
 
-          {/* Menu items + Language Toggle */}
-          <div className="flex items-center gap-4">
-            {/* Menu items */}
-            <div className="flex items-center">
-              {menuItems.map((item) => (
-                <div
-                  key={item.key}
-                  className="w-[120px] text-center"
-                  onMouseEnter={() => setHoveredMenu(item.key)}
+          {/* Menu items - centered */}
+          <div className="mx-auto flex items-center">
+            {menuItems.map((item) => (
+              <div
+                key={item.key}
+                className="w-[120px] text-center"
+                onMouseEnter={() => setHoveredMenu(item.key)}
+              >
+                <button
+                  className={`w-full py-3 text-lg font-normal tracking-wide transition-colors duration-200 border-b-2 ${
+                    hoveredMenu === item.key
+                      ? isNavHovered
+                        ? "text-[#e87a1e] border-[#e87a1e]"
+                        : "text-[#f0a050] border-[#f0a050]"
+                      : isNavHovered
+                      ? "text-[#1a1a2e] border-transparent hover:text-[#e87a1e]"
+                      : "text-[#6eaaef] border-transparent hover:text-white"
+                  }`}
                 >
-                  <button
-                    className={`w-full py-3 text-lg font-normal tracking-wide transition-colors duration-200 border-b-2 ${
-                      hoveredMenu === item.key
-                        ? isNavHovered
-                          ? "text-[#e87a1e] border-[#e87a1e]"
-                          : "text-[#f0a050] border-[#f0a050]"
-                        : isNavHovered
-                        ? "text-[#1a1a2e] border-transparent hover:text-[#e87a1e]"
-                        : "text-[#6eaaef] border-transparent hover:text-white"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                </div>
-              ))}
-            </div>
-
-            {/* Language Toggle Button */}
-            <button
-              onClick={toggleLanguage}
-              className={`ml-4 flex items-center rounded px-2 py-1 text-xs font-medium transition-all duration-200 ${
-                isNavHovered
-                  ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                  : "bg-white/20 text-white/90 hover:bg-white/30"
-              }`}
-            >
-              <span className={language === "ko" ? "font-bold" : "opacity-60"}>한글</span>
-              <span className="mx-1 opacity-40">/</span>
-              <span className={language === "en" ? "font-bold" : "opacity-60"}>EN</span>
-            </button>
+                  {item.label}
+                </button>
+              </div>
+            ))}
           </div>
+
+          {/* Language Toggle Button - absolute right */}
+          <button
+            onClick={toggleLanguage}
+            className={`absolute right-6 flex items-center rounded px-2 py-1 text-xs font-medium transition-all duration-200 lg:right-10 ${
+              isNavHovered
+                ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                : "bg-white/20 text-white/90 hover:bg-white/30"
+            }`}
+          >
+            <span className={language === "ko" ? "font-bold" : "opacity-60"}>한글</span>
+            <span className="mx-1 opacity-40">/</span>
+            <span className={language === "en" ? "font-bold" : "opacity-60"}>EN</span>
+          </button>
         </div>
       </div>
 
@@ -146,8 +143,8 @@ export default function Navbar() {
         }`}
       >
         <div className="bg-white/95 backdrop-blur-sm border-t border-[#e5e5e5]">
-          <div className="flex items-start justify-end px-6 py-5 lg:px-10">
-            {/* Menu items container - matches parent menu layout */}
+          <div className="flex justify-center py-5">
+            {/* Menu items container - centered, same as main menu */}
             <div className="flex items-start">
               {menuItems.map((item) => (
                 <div
@@ -173,8 +170,6 @@ export default function Navbar() {
                 </div>
               ))}
             </div>
-            {/* Spacer for language button - matches button width + ml-4 + gap */}
-            <div className="ml-4 w-[68px] flex-shrink-0" />
           </div>
         </div>
       </div>
