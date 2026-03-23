@@ -171,8 +171,8 @@ export default function Navbar() {
                 </div>
               </div>
             ))}
-            {/* Spacer for language button */}
-            <div className="w-[60px]" />
+            {/* Spacer for language button - matches button width + ml-4 */}
+            <div className="ml-4 w-[68px]" />
           </div>
         </div>
       </div>

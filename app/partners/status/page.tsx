@@ -8,6 +8,7 @@ const domesticPartners = [
   { src: "/images/partners/samsung.png", alt: "삼성화재" },
   { src: "/images/partners/hyundai.png", alt: "현대해상" },
   { src: "/images/partners/kb.png", alt: "KB손해보험" },
+  { src: "/images/partners/db.png", alt: "DB손해보험" },
   { src: "/images/partners/meritz.png", alt: "메리츠화재" },
   { src: "/images/partners/hanwha.png", alt: "한화손해보험" },
   { src: "/images/partners/nh.png", alt: "NH농협손해보험" },
