@@ -204,30 +204,28 @@ export default function CompanyInfoPage() {
             {/* T&G */}
             <div className="flex flex-col gap-3">
               <div className="w-full rounded-md border border-[#5a9bd4] bg-white px-6 py-3 text-center">
-                <span className="font-medium text-[#1a1a2e]">T&G손해사정(주)</span>
+                <span className="font-medium text-[#1a1a2e]">{t("company.info.tng.name")}</span>
               </div>
-              <div className="min-h-[80px] w-full rounded-md border border-[#5a9bd4] bg-[#e8f4fc] px-4 py-3 text-center">
+              <div className="flex min-h-[100px] w-full items-center justify-center rounded-md border border-[#5a9bd4] bg-[#e8f4fc] px-4 py-3 text-center">
                 <span className="text-sm leading-relaxed text-[#1a1a2e]">{t("company.info.tng.desc")}</span>
               </div>
-              <div className="min-h-[60px] w-full rounded-md border border-[#5a9bd4] bg-white px-4 py-3 text-center">
-                <span className="text-sm text-[#1a1a2e]">Seoul, Metropolitan, Daejeon, Gwangju, Daegu, Busan</span>
-                <br />
-                <span className="text-sm font-medium text-[#e87a1e]">{t("company.info.tng.offices")}</span>
+              <div className="flex min-h-[80px] w-full flex-col items-center justify-center rounded-md border border-[#5a9bd4] bg-white px-4 py-3 text-center">
+                <span className="text-xs text-[#1a1a2e]">{t("company.info.tng.locations")}</span>
+                <span className="mt-1 text-sm font-medium text-[#e87a1e]">{t("company.info.tng.offices")}</span>
               </div>
             </div>
 
             {/* H&T */}
             <div className="flex flex-col gap-3">
               <div className="w-full rounded-md border border-[#5a9bd4] bg-white px-6 py-3 text-center">
-                <span className="font-medium text-[#1a1a2e]">H&T손해사정(주)</span>
+                <span className="font-medium text-[#1a1a2e]">{t("company.info.hnt.name")}</span>
               </div>
-              <div className="min-h-[80px] w-full rounded-md border border-[#5a9bd4] bg-[#e8f4fc] px-4 py-3 text-center">
+              <div className="flex min-h-[100px] w-full items-center justify-center rounded-md border border-[#5a9bd4] bg-[#e8f4fc] px-4 py-3 text-center">
                 <span className="text-sm leading-relaxed text-[#1a1a2e]">{t("company.info.hnt.desc")}</span>
               </div>
-              <div className="min-h-[60px] w-full rounded-md border border-[#5a9bd4] bg-white px-4 py-3 text-center">
-                <span className="text-sm text-[#1a1a2e]">Seoul, Incheon, Daejeon, Gwangju, Busan</span>
-                <br />
-                <span className="text-sm font-medium text-[#e87a1e]">{t("company.info.hnt.offices")}</span>
+              <div className="flex min-h-[80px] w-full flex-col items-center justify-center rounded-md border border-[#5a9bd4] bg-white px-4 py-3 text-center">
+                <span className="text-xs text-[#1a1a2e]">{t("company.info.hnt.locations")}</span>
+                <span className="mt-1 text-sm font-medium text-[#e87a1e]">{t("company.info.hnt.offices")}</span>
               </div>
             </div>
 
@@ -236,13 +234,12 @@ export default function CompanyInfoPage() {
               <div className="w-full rounded-md border border-[#5a9bd4] bg-white px-6 py-3 text-center">
                 <span className="font-medium text-[#1a1a2e]">{t("company.info.enpaby")}</span>
               </div>
-              <div className="min-h-[80px] w-full rounded-md border border-[#5a9bd4] bg-[#e8f4fc] px-4 py-3 text-center">
+              <div className="flex min-h-[100px] w-full items-center justify-center rounded-md border border-[#5a9bd4] bg-[#e8f4fc] px-4 py-3 text-center">
                 <span className="text-sm leading-relaxed text-[#1a1a2e]">{t("company.info.enpaby.desc")}</span>
               </div>
-              <div className="min-h-[60px] w-full rounded-md border border-[#5a9bd4] bg-white px-4 py-3 text-center">
-                <span className="text-sm text-[#1a1a2e]">Seoul</span>
-                <br />
-                <span className="text-sm font-medium text-[#e87a1e]">{t("company.info.enpaby.staff")}</span>
+              <div className="flex min-h-[80px] w-full flex-col items-center justify-center rounded-md border border-[#5a9bd4] bg-white px-4 py-3 text-center">
+                <span className="text-xs text-[#1a1a2e]">{t("company.info.enpaby.location")}</span>
+                <span className="mt-1 text-sm font-medium text-[#e87a1e]">{t("company.info.enpaby.staff")}</span>
               </div>
             </div>
           </div>
@@ -252,11 +249,11 @@ export default function CompanyInfoPage() {
         <div className="mx-auto mt-16 max-w-4xl">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {/* T&G Card */}
-            <div className="overflow-hidden rounded-lg border border-[#5a9bd4] bg-white shadow-sm">
+            <div className="flex flex-col overflow-hidden rounded-lg border border-[#5a9bd4] bg-white shadow-sm">
               <div className="border-b border-[#5a9bd4] bg-white px-6 py-4 text-center">
                 <span className="text-xl font-medium text-[#1a1a2e]">T&G</span>
               </div>
-              <div className="flex min-h-[160px] flex-col justify-center bg-[#5a9bd4] px-4 py-5 text-center">
+              <div className="flex flex-1 items-center justify-center bg-[#5a9bd4] px-4 py-5 text-center">
                 <p className="text-xs leading-relaxed text-white">
                   {t("company.info.tng.services")}
                 </p>
@@ -264,11 +261,11 @@ export default function CompanyInfoPage() {
             </div>
 
             {/* H&T Card */}
-            <div className="overflow-hidden rounded-lg border border-[#5a9bd4] bg-white shadow-sm">
+            <div className="flex flex-col overflow-hidden rounded-lg border border-[#5a9bd4] bg-white shadow-sm">
               <div className="border-b border-[#5a9bd4] bg-white px-6 py-4 text-center">
                 <span className="text-xl font-medium text-[#1a1a2e]">H&T</span>
               </div>
-              <div className="flex min-h-[160px] flex-col justify-center bg-[#5a9bd4] px-4 py-5 text-center">
+              <div className="flex flex-1 items-center justify-center bg-[#5a9bd4] px-4 py-5 text-center">
                 <p className="text-xs leading-relaxed text-white">
                   {t("company.info.hnt.services")}
                 </p>
@@ -276,11 +273,11 @@ export default function CompanyInfoPage() {
             </div>
 
             {/* 엔파비 Card */}
-            <div className="overflow-hidden rounded-lg border border-[#5a9bd4] bg-white shadow-sm">
+            <div className="flex flex-col overflow-hidden rounded-lg border border-[#5a9bd4] bg-white shadow-sm">
               <div className="border-b border-[#5a9bd4] bg-white px-6 py-4 text-center">
                 <span className="text-xl font-medium text-[#1a1a2e]">{t("company.info.enpaby")}</span>
               </div>
-              <div className="flex min-h-[160px] flex-col justify-center bg-[#5a9bd4] px-4 py-5 text-center">
+              <div className="flex flex-1 items-center justify-center bg-[#5a9bd4] px-4 py-5 text-center">
                 <p className="text-xs leading-relaxed text-white">
                   {t("company.info.enpaby.services")}
                 </p>

@@ -6,7 +6,7 @@ import Navbar from "@/components/navbar";
 import { useLanguage } from "@/lib/language-context";
 
 export default function ServiceProcessPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <main className="min-h-screen bg-white">
@@ -46,8 +46,8 @@ export default function ServiceProcessPage() {
               <div className="mb-4">
                 <UserPlus className="h-14 w-14 text-[#333]" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">{t("service.process.step1.title")}</h3>
-              <p className="text-sm text-[#666]">{t("service.process.step1.desc")}</p>
+              <h3 className={`mb-2 font-semibold text-[#1a1a2e] ${language === "en" ? "text-sm" : "text-lg"}`}>{t("service.process.step1.title")}</h3>
+              <p className={`text-[#666] ${language === "en" ? "text-xs" : "text-sm"}`}>{t("service.process.step1.desc")}</p>
             </div>
 
             {/* Arrow */}
@@ -60,8 +60,8 @@ export default function ServiceProcessPage() {
               <div className="mb-4">
                 <FileSearch className="h-14 w-14 text-[#333]" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">{t("service.process.step2.title")}</h3>
-              <p className="text-sm text-[#666]">{t("service.process.step2.desc")}</p>
+              <h3 className={`mb-2 font-semibold text-[#1a1a2e] ${language === "en" ? "text-sm" : "text-lg"}`}>{t("service.process.step2.title")}</h3>
+              <p className={`text-[#666] ${language === "en" ? "text-xs" : "text-sm"}`}>{t("service.process.step2.desc")}</p>
             </div>
 
             {/* Arrow */}
@@ -74,8 +74,8 @@ export default function ServiceProcessPage() {
               <div className="mb-4">
                 <Building2 className="h-14 w-14 text-[#333]" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">{t("service.process.step3.title")}</h3>
-              <p className="text-sm text-[#666]">{t("service.process.step3.desc")}</p>
+              <h3 className={`mb-2 font-semibold text-[#1a1a2e] ${language === "en" ? "text-sm" : "text-lg"}`}>{t("service.process.step3.title")}</h3>
+              <p className={`text-[#666] ${language === "en" ? "text-xs" : "text-sm"}`}>{t("service.process.step3.desc")}</p>
             </div>
           </div>
 
@@ -102,8 +102,8 @@ export default function ServiceProcessPage() {
               <div className="mb-4">
                 <FileCheck className="h-14 w-14 text-[#333]" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">{t("service.process.step6.title")}</h3>
-              <p className="text-sm text-[#666]">{t("service.process.step6.desc")}</p>
+              <h3 className={`mb-2 font-semibold text-[#1a1a2e] ${language === "en" ? "text-sm" : "text-lg"}`}>{t("service.process.step6.title")}</h3>
+              <p className={`text-[#666] ${language === "en" ? "text-xs" : "text-sm"}`}>{t("service.process.step6.desc")}</p>
             </div>
 
             {/* Arrow */}
@@ -116,8 +116,8 @@ export default function ServiceProcessPage() {
               <div className="mb-4">
                 <Calculator className="h-14 w-14 text-[#333]" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">{t("service.process.step5.title")}</h3>
-              <p className="text-sm text-[#666]">{t("service.process.step5.desc")}</p>
+              <h3 className={`mb-2 font-semibold text-[#1a1a2e] ${language === "en" ? "text-sm" : "text-lg"}`}>{t("service.process.step5.title")}</h3>
+              <p className={`text-[#666] ${language === "en" ? "text-xs" : "text-sm"}`}>{t("service.process.step5.desc")}</p>
             </div>
 
             {/* Arrow */}
@@ -130,8 +130,8 @@ export default function ServiceProcessPage() {
               <div className="mb-4">
                 <ClipboardCheck className="h-14 w-14 text-[#333]" strokeWidth={1.5} />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-[#1a1a2e]">{t("service.process.step4.title")}</h3>
-              <p className="text-sm text-[#666]">{t("service.process.step4.desc")}</p>
+              <h3 className={`mb-2 font-semibold text-[#1a1a2e] ${language === "en" ? "text-sm" : "text-lg"}`}>{t("service.process.step4.title")}</h3>
+              <p className={`text-[#666] ${language === "en" ? "text-xs" : "text-sm"}`}>{t("service.process.step4.desc")}</p>
             </div>
           </div>
         </div>
@@ -140,7 +140,7 @@ export default function ServiceProcessPage() {
       {/* Bottom Banner */}
       <section className="bg-[#f5a623] px-4 py-12 md:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-xl font-medium text-white md:text-2xl">
+          <p className={`font-medium text-white ${language === "en" ? "text-base md:text-lg" : "text-xl md:text-2xl"}`}>
             <span className="text-[#5a9bd4]">{t("service.process.banner.personal")}</span>
             ·
             <span className="text-[#5a9bd4]">{t("service.process.banner.property")}</span>
@@ -148,7 +148,7 @@ export default function ServiceProcessPage() {
             <span className="text-[#5a9bd4]">{t("service.process.banner.liability")}</span>
             {t("service.process.banner.until")}
           </p>
-          <p className="mt-2 text-xl font-medium text-white md:text-2xl">
+          <p className={`mt-2 font-medium text-white ${language === "en" ? "text-base md:text-lg" : "text-xl md:text-2xl"}`}>
             {t("service.process.banner.all")}
             <span className="font-bold"> {t("service.process.banner.same")}</span>
             {t("service.process.banner.and")}

@@ -146,33 +146,35 @@ export default function Navbar() {
         }`}
       >
         <div className="bg-white/95 backdrop-blur-sm border-t border-[#e5e5e5]">
-          <div className="flex justify-end px-6 py-5 lg:px-10">
-            {/* Use same fixed width as menu items */}
-            {menuItems.map((item) => (
-              <div
-                key={item.key}
-                className="w-[120px] text-center"
-                onMouseEnter={() => setHoveredMenu(item.key)}
-              >
+          <div className="flex items-start justify-end px-6 py-5 lg:px-10">
+            {/* Menu items container - matches parent menu layout */}
+            <div className="flex items-start">
+              {menuItems.map((item) => (
                 <div
-                  className={`flex flex-col gap-2 transition-opacity duration-200 ${
-                    hoveredMenu === item.key ? "opacity-100" : "opacity-40"
-                  }`}
+                  key={item.key}
+                  className="w-[120px] text-center"
+                  onMouseEnter={() => setHoveredMenu(item.key)}
                 >
-                  {item.subItems.map((sub) => (
-                    <a
-                      key={sub.name}
-                      href={sub.href}
-                      className="whitespace-nowrap text-sm text-[#444] transition-colors duration-150 hover:text-[#e87a1e]"
-                    >
-                      {sub.name}
-                    </a>
-                  ))}
+                  <div
+                    className={`flex flex-col gap-2 transition-opacity duration-200 ${
+                      hoveredMenu === item.key ? "opacity-100" : "opacity-40"
+                    }`}
+                  >
+                    {item.subItems.map((sub) => (
+                      <a
+                        key={sub.name}
+                        href={sub.href}
+                        className="whitespace-nowrap text-sm text-[#444] transition-colors duration-150 hover:text-[#e87a1e]"
+                      >
+                        {sub.name}
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
-            {/* Spacer for language button - matches button width + ml-4 */}
-            <div className="ml-4 w-[68px]" />
+              ))}
+            </div>
+            {/* Spacer for language button - matches button width + ml-4 + gap */}
+            <div className="ml-4 w-[68px] flex-shrink-0" />
           </div>
         </div>
       </div>

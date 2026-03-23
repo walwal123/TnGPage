@@ -4,7 +4,7 @@ import Navbar from "@/components/navbar";
 import { useLanguage } from "@/lib/language-context";
 
 export default function BusinessOverviewPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <main className="min-h-screen bg-white">
@@ -235,7 +235,7 @@ export default function BusinessOverviewPage() {
               <div className="flex flex-1 flex-col md:flex-row">
                 <div className="flex w-full flex-col justify-center border-b border-[#eee] bg-white px-6 py-6 md:w-[180px] md:border-b-0 md:border-r">
                   <p className="mb-1 text-sm text-[#5a9bd4]">{t("business.overview.service02")}</p>
-                  <h4 className="text-lg font-semibold text-[#1a1a2e]">{t("business.overview.coverage.propinv.title")}</h4>
+                  <h4 className={`font-semibold text-[#1a1a2e] ${language === "en" ? "text-sm" : "text-lg"}`}>{t("business.overview.coverage.propinv.title")}</h4>
                   <p className="mt-1 text-xs text-[#999]">Property Insurance</p>
                 </div>
                 <div className="flex-1 p-6">
