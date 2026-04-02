@@ -11,11 +11,26 @@ export default function Navbar() {
   const [isNavHovered, setIsNavHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const pathname = usePathname();
   
   // Check if we're on a detail page (not the main page)
   const isDetailPage = pathname !== "/";
+  
+  // Detect scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    
+    handleScroll(); // Check initial position
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  
+  // Should show solid background: when scrolled, hovered, or mobile menu open
+  const showSolidBg = isScrolled || isNavHovered || isMobileMenuOpen;
 
   const menuItems = [
     {
@@ -105,7 +120,7 @@ export default function Navbar() {
       {/* Main navbar */}
       <div
         className={`transition-all duration-300 ${
-          isNavHovered || isDetailPage || isMobileMenuOpen
+          showSolidBg
             ? "bg-white/95 backdrop-blur-sm shadow-md"
             : "bg-transparent"
         }`}
@@ -123,7 +138,7 @@ export default function Navbar() {
             />
             <span
               className={`text-lg font-medium tracking-tight transition-colors duration-300 md:text-2xl ${
-                isNavHovered || isDetailPage || isMobileMenuOpen ? "text-[#1a1a2e]" : "text-white"
+                showSolidBg ? "text-[#1a1a2e]" : "text-white"
               }`}
             >
               {t("nav.logo")}
@@ -141,10 +156,10 @@ export default function Navbar() {
                 <button
                   className={`w-full py-3 text-lg font-normal tracking-wide transition-colors duration-200 border-b-2 ${
                     hoveredMenu === item.key
-                      ? isNavHovered || isDetailPage
+                      ? showSolidBg
                         ? "text-[#e87a1e] border-[#e87a1e]"
                         : "text-[#f0a050] border-[#f0a050]"
-                      : isNavHovered || isDetailPage
+                      : showSolidBg
                       ? "text-[#1a1a2e] border-transparent hover:text-[#e87a1e]"
                       : "text-[#6eaaef] border-transparent hover:text-white"
                   }`}
@@ -161,7 +176,7 @@ export default function Navbar() {
             <button
               onClick={toggleLanguage}
               className={`flex items-center rounded px-2 py-1 text-xs font-medium transition-all duration-200 ${
-                isNavHovered || isDetailPage || isMobileMenuOpen
+                showSolidBg
                   ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   : "bg-white/20 text-white/90 hover:bg-white/30"
               }`}
@@ -175,7 +190,7 @@ export default function Navbar() {
             <button
               onClick={toggleMobileMenu}
               className={`flex h-10 w-10 items-center justify-center rounded lg:hidden ${
-                isNavHovered || isDetailPage || isMobileMenuOpen
+                showSolidBg
                   ? "text-[#1a1a2e]"
                   : "text-white"
               }`}
