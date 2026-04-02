@@ -36,7 +36,7 @@ export default function PartnersStatusPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative flex h-[280px] w-full items-center justify-center">
+      <section className="relative flex h-[200px] w-full items-center justify-center md:h-[280px]">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(/images/company/sean-buildings.jpg)" }}
@@ -44,45 +44,45 @@ export default function PartnersStatusPage() {
           <div className="absolute inset-0 bg-[#1a1a2e]/60" />
         </div>
         <div className="relative z-10 text-center">
-          <h1 className="text-3xl font-medium text-white md:text-4xl lg:text-5xl">
+          <h1 className="text-2xl font-medium text-white md:text-3xl lg:text-5xl">
             {t("partners.status.hero")}
           </h1>
         </div>
       </section>
 
       {/* Insurance Partners Section */}
-      <section className="bg-white px-8 py-16 md:px-16 lg:px-24">
+      <section className="bg-white px-4 py-10 md:px-16 md:py-16 lg:px-24">
         <div className="mx-auto max-w-5xl">
-          <div className="mb-12 text-center">
-            <h3 className="mb-2 text-xl font-medium text-[#1a1a2e] md:text-2xl">
+          <div className="mb-8 text-center md:mb-12">
+            <h3 className="mb-2 text-lg font-medium text-[#1a1a2e] md:text-xl lg:text-2xl">
               {t("partners.status.title")}
               {" "}
               <span className="text-[#e87a1e]">{t("partners.status.count")}</span>
               {" "}
               {t("partners.status.partnership")}
             </h3>
-            <p className="text-sm text-[#666]">{t("partners.status.desc")}</p>
-            <div className="mx-auto mt-4 h-px w-64 bg-[#e87a1e]" />
+            <p className="text-xs text-[#666] md:text-sm">{t("partners.status.desc")}</p>
+            <div className="mx-auto mt-3 h-px w-48 bg-[#e87a1e] md:mt-4 md:w-64" />
           </div>
 
           {/* 국내 */}
-          <div className="mb-10">
-            <div className="mb-4 flex items-center gap-2">
-              <div className="h-4 w-1 bg-[#1a1a2e]" />
-              <span className="text-base font-medium text-[#1a1a2e]">{t("partners.status.domestic")}</span>
+          <div className="mb-8 md:mb-10">
+            <div className="mb-3 flex items-center gap-2 md:mb-4">
+              <div className="h-3 w-1 bg-[#1a1a2e] md:h-4" />
+              <span className="text-sm font-medium text-[#1a1a2e] md:text-base">{t("partners.status.domestic")}</span>
             </div>
-            <div className="grid grid-cols-3 gap-4 md:grid-cols-5">
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4">
               {domesticPartners.map((partner) => (
                 <div
                   key={partner.alt}
-                  className="flex h-16 items-center justify-center rounded border border-[#e5e5e5] bg-[#fafafa] px-4 md:h-20"
+                  className="flex h-14 items-center justify-center rounded border border-[#e5e5e5] bg-[#fafafa] px-3 md:h-20 md:px-4"
                 >
                   <Image
                     src={partner.src}
                     alt={partner.alt}
                     width={140}
                     height={50}
-                    className="h-10 w-auto object-contain md:h-12"
+                    className="h-8 w-auto object-contain md:h-12"
                   />
                 </div>
               ))}
@@ -91,22 +91,22 @@ export default function PartnersStatusPage() {
 
           {/* 해외 */}
           <div>
-            <div className="mb-4 flex items-center gap-2">
-              <div className="h-4 w-1 bg-[#1a1a2e]" />
-              <span className="text-base font-medium text-[#1a1a2e]">{t("partners.status.foreign")}</span>
+            <div className="mb-3 flex items-center gap-2 md:mb-4">
+              <div className="h-3 w-1 bg-[#1a1a2e] md:h-4" />
+              <span className="text-sm font-medium text-[#1a1a2e] md:text-base">{t("partners.status.foreign")}</span>
             </div>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
               {foreignPartners.map((partner) => (
                 <div
                   key={partner.alt}
-                  className="flex h-16 items-center justify-center rounded border border-[#e5e5e5] bg-[#fafafa] px-4 md:h-20"
+                  className="flex h-14 items-center justify-center rounded border border-[#e5e5e5] bg-[#fafafa] px-3 md:h-20 md:px-4"
                 >
                   <Image
                     src={partner.src}
                     alt={partner.alt}
                     width={140}
                     height={50}
-                    className="h-10 w-auto object-contain md:h-12"
+                    className="h-8 w-auto object-contain md:h-12"
                   />
                 </div>
               ))}
@@ -116,7 +116,7 @@ export default function PartnersStatusPage() {
       </section>
 
       {/* White gap */}
-      <div className="h-24 bg-white" />
+      <div className="h-12 bg-white md:h-24" />
     </main>
   );
 }
