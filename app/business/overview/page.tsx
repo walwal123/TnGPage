@@ -191,36 +191,34 @@ export default function BusinessOverviewPage() {
             {/* Card 1 */}
             <div className="flex flex-col overflow-hidden rounded-xl bg-white shadow-md md:min-h-[200px] md:flex-row">
               <div
-                className="h-[120px] w-full flex-shrink-0 bg-cover bg-center md:h-auto md:w-[280px]"
+                className="h-[120px] w-full flex-shrink-0 bg-cover bg-center md:h-auto md:w-[200px]"
                 style={{ backgroundImage: "url(/images/business/towfiqu-analysis.jpg)" }}
               />
-              <div className="flex flex-1 flex-col">
-                <div className="flex w-full flex-col justify-center border-b border-[#eee] bg-white px-4 py-4 md:w-[180px] md:border-b-0 md:border-r md:px-6 md:py-6">
-                  <p className="mb-1 text-xs text-[#5a9bd4]">{t("business.overview.service01")}</p>
-                  <h4 className="text-base font-semibold text-[#1a1a2e] md:text-xl">{t("business.overview.simple.title")}</h4>
-                  <p className="mt-1 text-xs text-[#999]">Small Claims Review</p>
-                </div>
-                <div className="flex-1 p-4 md:p-6">
-                  <div className="grid gap-4 md:grid-cols-2 md:gap-6">
-                    <div>
-                      <h5 className="mb-2 text-sm font-medium text-[#1a1a2e] md:mb-3 md:text-base">{t("business.overview.coverage.personal")}</h5>
-                      <ul className="space-y-1 text-xs text-[#555] md:space-y-2 md:text-sm">
-                        <li>- {t("business.overview.coverage.personal.item1")}</li>
-                        <li>- {t("business.overview.coverage.personal.item2")}</li>
-                        <li>- {t("business.overview.coverage.personal.item3")}</li>
-                        <li>- {t("business.overview.coverage.personal.item4")}</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h5 className="mb-2 text-sm font-medium text-[#1a1a2e] md:mb-3 md:text-base">{t("business.overview.coverage.property")}</h5>
-                      <ul className="space-y-1 text-xs text-[#555] md:space-y-2 md:text-sm">
-                        <li>- {t("business.overview.coverage.property.item1")}</li>
-                        <li>- {t("business.overview.coverage.property.item2")}</li>
-                        <li>- {t("business.overview.coverage.property.item3")}</li>
-                        <li>- {t("business.overview.coverage.property.item4")}</li>
-                        <li>- {t("business.overview.coverage.property.item5")}</li>
-                      </ul>
-                    </div>
+              <div className="flex w-full flex-col justify-center border-b border-[#eee] bg-white px-4 py-4 md:w-[180px] md:flex-shrink-0 md:border-b-0 md:border-r md:px-6 md:py-6">
+                <p className="mb-1 text-xs text-[#5a9bd4]">{t("business.overview.service01")}</p>
+                <h4 className="text-base font-semibold text-[#1a1a2e] md:text-xl">{t("business.overview.simple.title")}</h4>
+                <p className="mt-1 text-xs text-[#999]">Small Claims Review</p>
+              </div>
+              <div className="flex-1 p-4 md:p-6">
+                <div className="grid gap-4 md:grid-cols-2 md:gap-6">
+                  <div>
+                    <h5 className="mb-2 text-sm font-medium text-[#1a1a2e] md:mb-3 md:text-base">{t("business.overview.coverage.personal")}</h5>
+                    <ul className="space-y-1 text-xs text-[#555] md:space-y-2 md:text-sm">
+                      <li>- {t("business.overview.coverage.personal.item1")}</li>
+                      <li>- {t("business.overview.coverage.personal.item2")}</li>
+                      <li>- {t("business.overview.coverage.personal.item3")}</li>
+                      <li>- {t("business.overview.coverage.personal.item4")}</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="mb-2 text-sm font-medium text-[#1a1a2e] md:mb-3 md:text-base">{t("business.overview.coverage.property")}</h5>
+                    <ul className="space-y-1 text-xs text-[#555] md:space-y-2 md:text-sm">
+                      <li>- {t("business.overview.coverage.property.item1")}</li>
+                      <li>- {t("business.overview.coverage.property.item2")}</li>
+                      <li>- {t("business.overview.coverage.property.item3")}</li>
+                      <li>- {t("business.overview.coverage.property.item4")}</li>
+                      <li>- {t("business.overview.coverage.property.item5")}</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -229,82 +227,76 @@ export default function BusinessOverviewPage() {
             {/* Card 2 */}
             <div className="flex flex-col overflow-hidden rounded-xl bg-white shadow-md md:min-h-[200px] md:flex-row">
               <div
-                className="h-[120px] w-full flex-shrink-0 bg-cover bg-center md:h-auto md:w-[280px]"
+                className="h-[120px] w-full flex-shrink-0 bg-cover bg-center md:h-auto md:w-[200px]"
                 style={{ backgroundImage: "url(/images/business/fire-accident.jpg)" }}
               />
-              <div className="flex flex-1 flex-col">
-                <div className="flex w-full flex-col justify-center border-b border-[#eee] bg-white px-4 py-4 md:w-[180px] md:border-b-0 md:border-r md:px-6 md:py-6">
-                  <p className="mb-1 text-xs text-[#5a9bd4]">{t("business.overview.service02")}</p>
-                  <h4 className={`font-semibold text-[#1a1a2e] ${language === "en" ? "text-xs md:text-sm" : "text-sm md:text-lg"}`}>{t("business.overview.coverage.propinv.title")}</h4>
-                  <p className="mt-1 text-xs text-[#999]">Property Insurance</p>
-                </div>
-                <div className="flex-1 p-4 md:p-6">
-                  <ul className="grid gap-x-4 gap-y-1 text-xs text-[#555] md:grid-cols-2 md:gap-x-6 md:gap-y-2 md:text-sm">
-                    <li>- {t("business.overview.coverage.propinv.item1")}</li>
-                    <li>- {t("business.overview.coverage.propinv.item2")}</li>
-                    <li>- {t("business.overview.coverage.propinv.item3")}</li>
-                    <li>- {t("business.overview.coverage.propinv.item4")}</li>
-                    <li>- {t("business.overview.coverage.propinv.item5")}</li>
-                    <li>- {t("business.overview.coverage.propinv.item6")}</li>
-                    <li className="hidden md:list-item">- {t("business.overview.coverage.propinv.item7")}</li>
-                    <li className="hidden md:list-item">- {t("business.overview.coverage.propinv.item8")}</li>
-                    <li className="hidden md:list-item">- {t("business.overview.coverage.propinv.item9")}</li>
-                    <li className="hidden md:list-item">- {t("business.overview.coverage.propinv.item10")}</li>
-                  </ul>
-                </div>
+              <div className="flex w-full flex-col justify-center border-b border-[#eee] bg-white px-4 py-4 md:w-[180px] md:flex-shrink-0 md:border-b-0 md:border-r md:px-6 md:py-6">
+                <p className="mb-1 text-xs text-[#5a9bd4]">{t("business.overview.service02")}</p>
+                <h4 className={`font-semibold text-[#1a1a2e] ${language === "en" ? "text-xs md:text-sm" : "text-sm md:text-lg"}`}>{t("business.overview.coverage.propinv.title")}</h4>
+                <p className="mt-1 text-xs text-[#999]">Property Insurance</p>
+              </div>
+              <div className="flex-1 p-4 md:p-6">
+                <ul className="grid gap-x-4 gap-y-1 text-xs text-[#555] md:grid-cols-2 md:gap-x-6 md:gap-y-2 md:text-sm">
+                  <li>- {t("business.overview.coverage.propinv.item1")}</li>
+                  <li>- {t("business.overview.coverage.propinv.item2")}</li>
+                  <li>- {t("business.overview.coverage.propinv.item3")}</li>
+                  <li>- {t("business.overview.coverage.propinv.item4")}</li>
+                  <li>- {t("business.overview.coverage.propinv.item5")}</li>
+                  <li>- {t("business.overview.coverage.propinv.item6")}</li>
+                  <li className="hidden md:list-item">- {t("business.overview.coverage.propinv.item7")}</li>
+                  <li className="hidden md:list-item">- {t("business.overview.coverage.propinv.item8")}</li>
+                  <li className="hidden md:list-item">- {t("business.overview.coverage.propinv.item9")}</li>
+                  <li className="hidden md:list-item">- {t("business.overview.coverage.propinv.item10")}</li>
+                </ul>
               </div>
             </div>
 
             {/* Card 3 */}
             <div className="flex flex-col overflow-hidden rounded-xl bg-white shadow-md md:min-h-[200px] md:flex-row">
               <div
-                className="h-[120px] w-full flex-shrink-0 bg-cover bg-center md:h-auto md:w-[280px]"
+                className="h-[120px] w-full flex-shrink-0 bg-cover bg-center md:h-auto md:w-[200px]"
                 style={{ backgroundImage: "url(/images/business/hospital-patient.jpg)" }}
               />
-              <div className="flex flex-1 flex-col">
-                <div className="flex w-full flex-col justify-center border-b border-[#eee] bg-white px-4 py-4 md:w-[180px] md:border-b-0 md:border-r md:px-6 md:py-6">
-                  <p className="mb-1 text-xs text-[#5a9bd4]">{t("business.overview.service03")}</p>
-                  <h4 className="text-base font-semibold text-[#1a1a2e] md:text-xl">{t("business.overview.coverage.perinv.title")}</h4>
-                  <p className="mt-1 text-xs text-[#999]">Person Insurance</p>
-                </div>
-                <div className="flex-1 p-4 md:p-6">
-                  <ul className="grid gap-x-4 gap-y-1 text-xs text-[#555] md:grid-cols-2 md:gap-x-6 md:gap-y-2 md:text-sm">
-                    <li>- {t("business.overview.coverage.perinv.item1")}</li>
-                    <li>- {t("business.overview.coverage.perinv.item2")}</li>
-                    <li>- {t("business.overview.coverage.perinv.item3")}</li>
-                    <li>- {t("business.overview.coverage.perinv.item4")}</li>
-                    <li className="hidden md:list-item">- {t("business.overview.coverage.perinv.item5")}</li>
-                    <li className="hidden md:list-item">- {t("business.overview.coverage.perinv.item6")}</li>
-                    <li className="hidden md:list-item">- {t("business.overview.coverage.perinv.item7")}</li>
-                    <li className="hidden md:list-item">- {t("business.overview.coverage.perinv.item8")}</li>
-                  </ul>
-                </div>
+              <div className="flex w-full flex-col justify-center border-b border-[#eee] bg-white px-4 py-4 md:w-[180px] md:flex-shrink-0 md:border-b-0 md:border-r md:px-6 md:py-6">
+                <p className="mb-1 text-xs text-[#5a9bd4]">{t("business.overview.service03")}</p>
+                <h4 className="text-base font-semibold text-[#1a1a2e] md:text-xl">{t("business.overview.coverage.perinv.title")}</h4>
+                <p className="mt-1 text-xs text-[#999]">Person Insurance</p>
+              </div>
+              <div className="flex-1 p-4 md:p-6">
+                <ul className="grid gap-x-4 gap-y-1 text-xs text-[#555] md:grid-cols-2 md:gap-x-6 md:gap-y-2 md:text-sm">
+                  <li>- {t("business.overview.coverage.perinv.item1")}</li>
+                  <li>- {t("business.overview.coverage.perinv.item2")}</li>
+                  <li>- {t("business.overview.coverage.perinv.item3")}</li>
+                  <li>- {t("business.overview.coverage.perinv.item4")}</li>
+                  <li className="hidden md:list-item">- {t("business.overview.coverage.perinv.item5")}</li>
+                  <li className="hidden md:list-item">- {t("business.overview.coverage.perinv.item6")}</li>
+                  <li className="hidden md:list-item">- {t("business.overview.coverage.perinv.item7")}</li>
+                  <li className="hidden md:list-item">- {t("business.overview.coverage.perinv.item8")}</li>
+                </ul>
               </div>
             </div>
 
             {/* Card 4 */}
             <div className="flex flex-col overflow-hidden rounded-xl bg-white shadow-md md:min-h-[200px] md:flex-row">
               <div
-                className="h-[120px] w-full flex-shrink-0 bg-cover bg-center md:h-auto md:w-[280px]"
+                className="h-[120px] w-full flex-shrink-0 bg-cover bg-center md:h-auto md:w-[200px]"
                 style={{ backgroundImage: "url(/images/business/agriculture-field.jpg)" }}
               />
-              <div className="flex flex-1 flex-col">
-                <div className="flex w-full flex-col justify-center border-b border-[#eee] bg-white px-4 py-4 md:w-[180px] md:border-b-0 md:border-r md:px-6 md:py-6">
-                  <p className="mb-1 text-xs text-[#5a9bd4]">{t("business.overview.service04")}</p>
-                  <h4 className="text-sm font-semibold text-[#1a1a2e] md:text-lg">{t("business.overview.coverage.agri.title")}</h4>
-                  <p className="mt-1 text-xs text-[#999]">Agricultural Insurance</p>
-                </div>
-                <div className="flex-1 p-4 md:p-6">
-                  <ul className="grid gap-x-4 gap-y-1 text-xs text-[#555] md:grid-cols-2 md:gap-x-6 md:gap-y-2 md:text-sm">
-                    <li>- {t("business.overview.coverage.agri.item1")}</li>
-                    <li>- {t("business.overview.coverage.agri.item2")}</li>
-                    <li>- {t("business.overview.coverage.agri.item3")}</li>
-                    <li>- {t("business.overview.coverage.agri.item4")}</li>
-                    <li className="hidden md:list-item">- {t("business.overview.coverage.agri.item5")}</li>
-                    <li className="hidden md:list-item">- {t("business.overview.coverage.agri.item6")}</li>
-                    <li className="hidden md:list-item">- {t("business.overview.coverage.agri.item7")}</li>
-                  </ul>
-                </div>
+              <div className="flex w-full flex-col justify-center border-b border-[#eee] bg-white px-4 py-4 md:w-[180px] md:flex-shrink-0 md:border-b-0 md:border-r md:px-6 md:py-6">
+                <p className="mb-1 text-xs text-[#5a9bd4]">{t("business.overview.service04")}</p>
+                <h4 className="text-sm font-semibold text-[#1a1a2e] md:text-lg">{t("business.overview.coverage.agri.title")}</h4>
+                <p className="mt-1 text-xs text-[#999]">Agricultural Insurance</p>
+              </div>
+              <div className="flex-1 p-4 md:p-6">
+                <ul className="grid gap-x-4 gap-y-1 text-xs text-[#555] md:grid-cols-2 md:gap-x-6 md:gap-y-2 md:text-sm">
+                  <li>- {t("business.overview.coverage.agri.item1")}</li>
+                  <li>- {t("business.overview.coverage.agri.item2")}</li>
+                  <li>- {t("business.overview.coverage.agri.item3")}</li>
+                  <li>- {t("business.overview.coverage.agri.item4")}</li>
+                  <li className="hidden md:list-item">- {t("business.overview.coverage.agri.item5")}</li>
+                  <li className="hidden md:list-item">- {t("business.overview.coverage.agri.item6")}</li>
+                  <li className="hidden md:list-item">- {t("business.overview.coverage.agri.item7")}</li>
+                </ul>
               </div>
             </div>
           </div>
