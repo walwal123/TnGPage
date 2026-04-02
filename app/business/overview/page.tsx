@@ -203,8 +203,8 @@ export default function BusinessOverviewPage() {
                 <div className="flex-1 p-4 md:p-6">
                   <div className="grid gap-4 md:grid-cols-2 md:gap-6">
                     <div>
-                      <h5 className="mb-2 text-sm font-medium text-[#1a1a2e] md:mb-3">{t("business.overview.coverage.personal")}</h5>
-                      <ul className="space-y-1 text-xs text-[#555]">
+                      <h5 className="mb-2 text-sm font-medium text-[#1a1a2e] md:mb-3 md:text-base">{t("business.overview.coverage.personal")}</h5>
+                      <ul className="space-y-1 text-xs text-[#555] md:space-y-2 md:text-sm">
                         <li>- {t("business.overview.coverage.personal.item1")}</li>
                         <li>- {t("business.overview.coverage.personal.item2")}</li>
                         <li>- {t("business.overview.coverage.personal.item3")}</li>
@@ -212,8 +212,8 @@ export default function BusinessOverviewPage() {
                       </ul>
                     </div>
                     <div>
-                      <h5 className="mb-2 text-sm font-medium text-[#1a1a2e] md:mb-3">{t("business.overview.coverage.property")}</h5>
-                      <ul className="space-y-1 text-xs text-[#555]">
+                      <h5 className="mb-2 text-sm font-medium text-[#1a1a2e] md:mb-3 md:text-base">{t("business.overview.coverage.property")}</h5>
+                      <ul className="space-y-1 text-xs text-[#555] md:space-y-2 md:text-sm">
                         <li>- {t("business.overview.coverage.property.item1")}</li>
                         <li>- {t("business.overview.coverage.property.item2")}</li>
                         <li>- {t("business.overview.coverage.property.item3")}</li>
@@ -239,7 +239,7 @@ export default function BusinessOverviewPage() {
                   <p className="mt-1 text-xs text-[#999]">Property Insurance</p>
                 </div>
                 <div className="flex-1 p-4 md:p-6">
-                  <ul className="grid gap-x-4 gap-y-1 text-xs text-[#555] md:grid-cols-2 md:gap-x-6">
+                  <ul className="grid gap-x-4 gap-y-1 text-xs text-[#555] md:grid-cols-2 md:gap-x-6 md:gap-y-2 md:text-sm">
                     <li>- {t("business.overview.coverage.propinv.item1")}</li>
                     <li>- {t("business.overview.coverage.propinv.item2")}</li>
                     <li>- {t("business.overview.coverage.propinv.item3")}</li>
@@ -268,7 +268,7 @@ export default function BusinessOverviewPage() {
                   <p className="mt-1 text-xs text-[#999]">Person Insurance</p>
                 </div>
                 <div className="flex-1 p-4 md:p-6">
-                  <ul className="grid gap-x-4 gap-y-1 text-xs text-[#555] md:grid-cols-2 md:gap-x-6">
+                  <ul className="grid gap-x-4 gap-y-1 text-xs text-[#555] md:grid-cols-2 md:gap-x-6 md:gap-y-2 md:text-sm">
                     <li>- {t("business.overview.coverage.perinv.item1")}</li>
                     <li>- {t("business.overview.coverage.perinv.item2")}</li>
                     <li>- {t("business.overview.coverage.perinv.item3")}</li>
@@ -295,7 +295,7 @@ export default function BusinessOverviewPage() {
                   <p className="mt-1 text-xs text-[#999]">Agricultural Insurance</p>
                 </div>
                 <div className="flex-1 p-4 md:p-6">
-                  <ul className="grid gap-x-4 gap-y-1 text-xs text-[#555] md:grid-cols-2 md:gap-x-6">
+                  <ul className="grid gap-x-4 gap-y-1 text-xs text-[#555] md:grid-cols-2 md:gap-x-6 md:gap-y-2 md:text-sm">
                     <li>- {t("business.overview.coverage.agri.item1")}</li>
                     <li>- {t("business.overview.coverage.agri.item2")}</li>
                     <li>- {t("business.overview.coverage.agri.item3")}</li>
