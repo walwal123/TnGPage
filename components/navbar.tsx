@@ -110,9 +110,9 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="relative flex h-16 items-center justify-between px-4 md:h-24 md:px-6 lg:px-10">
-          {/* Logo - left */}
-          <a href="/" className="flex items-center gap-2 lg:w-[200px]">
+        <div className="relative flex h-16 items-center px-4 md:h-24 md:px-6 lg:px-10">
+          {/* Logo - absolute left */}
+          <a href="/" className="absolute left-4 flex items-center gap-2 md:left-6 lg:left-10">
             <Image
               src="/images/tng-logo.png"
               alt="T&G 손해사정 Group 로고"
@@ -130,8 +130,8 @@ export default function Navbar() {
             </span>
           </a>
 
-          {/* Desktop Menu items - centered with fixed width (hidden on mobile) */}
-          <div className="hidden items-center lg:flex" style={{ width: "600px" }}>
+          {/* Desktop Menu items - centered (hidden on mobile) */}
+          <div className="mx-auto hidden items-center lg:flex">
             {menuItems.map((item) => (
               <div
                 key={item.key}
@@ -156,7 +156,7 @@ export default function Navbar() {
           </div>
 
           {/* Right side: Language Toggle + Mobile Menu Button */}
-          <div className="flex items-center gap-2 lg:w-[200px] lg:justify-end">
+          <div className="absolute right-4 flex items-center gap-2 md:right-6 lg:right-10">
             {/* Language Toggle Button */}
             <button
               onClick={toggleLanguage}
@@ -198,12 +198,9 @@ export default function Navbar() {
         }`}
       >
         <div className="bg-white/95 backdrop-blur-sm border-t border-[#e5e5e5]">
-          <div className="flex items-start justify-between px-4 py-5 md:px-6 lg:px-10">
-            {/* Left spacer - same width as logo area */}
-            <div className="w-[200px]" />
-            
-            {/* Submenu items container - same fixed width as main menu */}
-            <div className="flex items-start" style={{ width: "600px" }}>
+          <div className="flex justify-center py-5">
+            {/* Submenu items container - uses mx-auto same as main menu */}
+            <div className="flex items-start">
               {menuItems.map((item) => (
                 <div
                   key={item.key}
@@ -228,9 +225,6 @@ export default function Navbar() {
                 </div>
               ))}
             </div>
-            
-            {/* Right spacer - same width as right side area */}
-            <div className="w-[200px]" />
           </div>
         </div>
       </div>
