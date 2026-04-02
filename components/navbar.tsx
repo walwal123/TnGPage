@@ -3,11 +3,14 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
 export default function Navbar() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [isNavHovered, setIsNavHovered] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
   const { language, setLanguage, t } = useLanguage();
   const pathname = usePathname();
   
@@ -63,6 +66,33 @@ export default function Navbar() {
     setLanguage(language === "ko" ? "en" : "ko");
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setExpandedMobileMenu(null);
+  };
+
+  const toggleMobileSubMenu = (key: string) => {
+    setExpandedMobileMenu(expandedMobileMenu === key ? null : key);
+  };
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setExpandedMobileMenu(null);
+  }, [pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
@@ -75,33 +105,33 @@ export default function Navbar() {
       {/* Main navbar */}
       <div
         className={`transition-all duration-300 ${
-          isNavHovered || isDetailPage
+          isNavHovered || isDetailPage || isMobileMenuOpen
             ? "bg-white/95 backdrop-blur-sm shadow-md"
             : "bg-transparent"
         }`}
       >
-        <div className="relative flex h-24 items-center px-6 lg:px-10">
+        <div className="relative flex h-16 items-center px-4 md:h-24 md:px-6 lg:px-10">
           {/* Logo - absolute left */}
-          <a href="/" className="absolute left-6 flex items-center gap-2 lg:left-10">
+          <a href="/" className="flex items-center gap-2">
             <Image
               src="/images/tng-logo.png"
               alt="T&G 손해사정 Group 로고"
               width={100}
               height={70}
-              className="h-16 w-auto object-contain"
+              className="h-10 w-auto object-contain md:h-16"
               priority
             />
             <span
-              className={`text-2xl font-medium tracking-tight transition-colors duration-300 ${
-                isNavHovered || isDetailPage ? "text-[#1a1a2e]" : "text-white"
+              className={`text-lg font-medium tracking-tight transition-colors duration-300 md:text-2xl ${
+                isNavHovered || isDetailPage || isMobileMenuOpen ? "text-[#1a1a2e]" : "text-white"
               }`}
             >
               {t("nav.logo")}
             </span>
           </a>
 
-          {/* Menu items - centered */}
-          <div className="mx-auto flex items-center">
+          {/* Desktop Menu items - centered (hidden on mobile) */}
+          <div className="mx-auto hidden items-center lg:flex">
             {menuItems.map((item) => (
               <div
                 key={item.key}
@@ -125,25 +155,45 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Language Toggle Button - absolute right */}
-          <button
-            onClick={toggleLanguage}
-            className={`absolute right-6 flex items-center rounded px-2 py-1 text-xs font-medium transition-all duration-200 lg:right-10 ${
-              isNavHovered || isDetailPage
-                ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                : "bg-white/20 text-white/90 hover:bg-white/30"
-            }`}
-          >
-            <span className={language === "ko" ? "font-bold" : "opacity-60"}>한글</span>
-            <span className="mx-1 opacity-40">/</span>
-            <span className={language === "en" ? "font-bold" : "opacity-60"}>EN</span>
-          </button>
+          {/* Right side: Language Toggle + Mobile Menu Button */}
+          <div className="ml-auto flex items-center gap-2">
+            {/* Language Toggle Button */}
+            <button
+              onClick={toggleLanguage}
+              className={`flex items-center rounded px-2 py-1 text-xs font-medium transition-all duration-200 ${
+                isNavHovered || isDetailPage || isMobileMenuOpen
+                  ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  : "bg-white/20 text-white/90 hover:bg-white/30"
+              }`}
+            >
+              <span className={language === "ko" ? "font-bold" : "opacity-60"}>한글</span>
+              <span className="mx-1 opacity-40">/</span>
+              <span className={language === "en" ? "font-bold" : "opacity-60"}>EN</span>
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className={`flex h-10 w-10 items-center justify-center rounded lg:hidden ${
+                isNavHovered || isDetailPage || isMobileMenuOpen
+                  ? "text-[#1a1a2e]"
+                  : "text-white"
+              }`}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Submenu dropdown */}
+      {/* Desktop Submenu dropdown (hidden on mobile) */}
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`hidden overflow-hidden transition-all duration-300 ease-in-out lg:block ${
           showSubmenu ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -176,6 +226,46 @@ export default function Navbar() {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 top-16 z-40 bg-white transition-transform duration-300 ease-in-out lg:hidden ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="h-full overflow-y-auto pb-20">
+          {menuItems.map((item) => (
+            <div key={item.key} className="border-b border-gray-100">
+              <button
+                onClick={() => toggleMobileSubMenu(item.key)}
+                className="flex w-full items-center justify-between px-6 py-4 text-left"
+              >
+                <span className="text-base font-medium text-[#1a1a2e]">{item.label}</span>
+                <ChevronDown
+                  className={`h-5 w-5 text-gray-400 transition-transform duration-200 ${
+                    expandedMobileMenu === item.key ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              <div
+                className={`overflow-hidden bg-gray-50 transition-all duration-200 ${
+                  expandedMobileMenu === item.key ? "max-h-96" : "max-h-0"
+                }`}
+              >
+                {item.subItems.map((sub) => (
+                  <a
+                    key={sub.name}
+                    href={sub.href}
+                    className="block px-10 py-3 text-sm text-[#666] transition-colors hover:bg-gray-100 hover:text-[#e87a1e]"
+                  >
+                    {sub.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 

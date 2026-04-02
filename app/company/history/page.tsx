@@ -207,14 +207,14 @@ function TimelineItem({
       onMouseLeave={onLeave}
     >
       {/* Connecting lines - positioned outside the circle container */}
-      <div className="absolute top-8 flex w-full items-center md:top-10">
+      <div className="absolute top-6 flex w-full items-center md:top-10">
         {/* Left line - hidden for first item */}
         {!isFirst && (
-          <div className="absolute right-1/2 h-1 w-[calc(50%+48px)] bg-[#5a9bd4] md:w-[calc(50%+56px)]" />
+          <div className="absolute right-1/2 h-1 w-[calc(50%+40px)] bg-[#5a9bd4] md:w-[calc(50%+56px)]" />
         )}
         {/* Right line - hidden for last item */}
         {!isLast && (
-          <div className="absolute left-1/2 h-1 w-[calc(50%+48px)] bg-[#5a9bd4] md:w-[calc(50%+56px)]" />
+          <div className="absolute left-1/2 h-1 w-[calc(50%+40px)] bg-[#5a9bd4] md:w-[calc(50%+56px)]" />
         )}
       </div>
 
@@ -222,14 +222,14 @@ function TimelineItem({
       <div className="relative z-10 flex items-center justify-center pt-2">
         {/* Circle with fill effect */}
         <div
-          className={`relative flex h-16 w-16 items-center justify-center rounded-full border-4 transition-all duration-300 md:h-20 md:w-20 ${
+          className={`relative flex h-12 w-12 items-center justify-center rounded-full border-4 transition-all duration-300 md:h-20 md:w-20 ${
             isHovered
               ? "border-[#e87a1e] bg-[#e87a1e] shadow-lg shadow-[#e87a1e]/30"
               : "border-[#5a9bd4] bg-white"
           }`}
         >
           <span
-            className={`text-lg transition-all duration-300 md:text-xl ${
+            className={`text-sm transition-all duration-300 md:text-xl ${
               isHovered ? "font-extrabold text-white" : "font-bold text-[#1a1a2e]"
             }`}
           >
@@ -240,7 +240,7 @@ function TimelineItem({
 
       {/* Events box */}
       <div
-        className={`mt-4 w-52 rounded-lg border p-4 transition-all duration-300 md:w-64 ${
+        className={`mt-3 w-40 rounded-lg border p-3 transition-all duration-300 md:mt-4 md:w-64 md:p-4 ${
           isHovered
             ? "border-[#5a9bd4]/50 bg-[#5a9bd4]/10 shadow-lg"
             : "border-[#5a9bd4]/30 bg-[#5a9bd4]/5"
@@ -249,7 +249,7 @@ function TimelineItem({
         {events.map((event, idx) => (
           <p
             key={idx}
-            className={`mb-2 text-xs leading-relaxed text-[#333] last:mb-0 md:text-sm ${
+            className={`mb-1 text-[10px] leading-relaxed text-[#333] last:mb-0 md:mb-2 md:text-sm ${
               isHovered ? "font-semibold" : "font-normal"
             }`}
             style={{ wordBreak: "keep-all" }}
@@ -271,7 +271,7 @@ export default function CompanyHistoryPage() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 300;
+      const scrollAmount = 200;
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -284,7 +284,7 @@ export default function CompanyHistoryPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative flex h-[280px] w-full items-center justify-center">
+      <section className="relative flex h-[200px] w-full items-center justify-center md:h-[280px]">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(/images/company/sean-buildings.jpg)" }}
@@ -292,47 +292,47 @@ export default function CompanyHistoryPage() {
           <div className="absolute inset-0 bg-[#1a1a2e]/60" />
         </div>
         <div className="relative z-10 text-center">
-          <h1 className="text-3xl font-medium text-white md:text-4xl lg:text-5xl">{t("company.history.hero")}</h1>
+          <h1 className="text-2xl font-medium text-white md:text-3xl lg:text-5xl">{t("company.history.hero")}</h1>
         </div>
       </section>
 
       {/* White gap */}
-      <div className="h-32 bg-white" />
+      <div className="h-16 bg-white md:h-32" />
 
       {/* Timeline Section */}
-      <section className="bg-white px-8 py-16 md:px-16">
-        <h2 className="mb-4 text-center text-3xl font-bold text-[#1a1a2e] md:text-4xl">
+      <section className="bg-white px-4 py-10 md:px-16 md:py-16">
+        <h2 className="mb-3 text-center text-xl font-bold text-[#1a1a2e] md:mb-4 md:text-3xl lg:text-4xl">
           {t("company.history.title")}
         </h2>
-        <p className="mb-12 text-center text-base text-[#666] md:text-lg" style={{ wordBreak: "keep-all" }}>
+        <p className="mb-8 text-center text-xs text-[#666] md:mb-12 md:text-lg" style={{ wordBreak: "keep-all" }}>
           {t("company.history.desc")}
         </p>
 
         {/* Horizontal Timeline with scroll */}
-        <div className="relative mx-auto max-w-[calc(100%-100px)]">
+        <div className="relative mx-auto max-w-[calc(100%-60px)] md:max-w-[calc(100%-100px)]">
           {/* Scroll buttons - positioned outside the container */}
           <button
             onClick={() => scroll("left")}
-            className="absolute -left-14 top-10 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-[#5a9bd4] text-white shadow-lg transition-colors hover:bg-[#4a8bc4]"
+            className="absolute -left-8 top-6 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-[#5a9bd4] text-white shadow-lg transition-colors hover:bg-[#4a8bc4] md:-left-14 md:top-10 md:h-10 md:w-10"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
           </button>
           <button
             onClick={() => scroll("right")}
-            className="absolute -right-14 top-10 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-[#5a9bd4] text-white shadow-lg transition-colors hover:bg-[#4a8bc4]"
+            className="absolute -right-8 top-6 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-[#5a9bd4] text-white shadow-lg transition-colors hover:bg-[#4a8bc4] md:-right-14 md:top-10 md:h-10 md:w-10"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
           </button>
 
           {/* Scrollable container */}
           <div
             ref={scrollRef}
-            className="overflow-x-auto pb-8"
+            className="overflow-x-auto pb-6 md:pb-8"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            <div className="relative min-w-max px-4">
+            <div className="relative min-w-max px-2 md:px-4">
               {/* Timeline items */}
-              <div className="relative flex gap-6 md:gap-8">
+              <div className="relative flex gap-4 md:gap-8">
                 {historyData.map((item, index) => (
                   <TimelineItem
                     key={item.year}
@@ -352,7 +352,7 @@ export default function CompanyHistoryPage() {
       </section>
 
       {/* Footer spacing */}
-      <div className="h-32 bg-white" />
+      <div className="h-16 bg-white md:h-32" />
     </main>
   );
 }

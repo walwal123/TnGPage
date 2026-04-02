@@ -70,7 +70,7 @@ export default function JobPostingPage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative flex h-[280px] w-full items-center justify-center">
+      <section className="relative flex h-[200px] w-full items-center justify-center md:h-[280px]">
         <Image
           src="/images/recruit/mina-handshake.jpg"
           alt="Recruitment background"
@@ -80,40 +80,40 @@ export default function JobPostingPage() {
         />
         <div className="absolute inset-0 bg-[#1a1a2e]/60" />
         <div className="relative z-10 text-center">
-          <h1 className="text-3xl font-medium text-white md:text-4xl lg:text-5xl">{t("recruit.jobs.hero")}</h1>
+          <h1 className="text-2xl font-medium text-white md:text-3xl lg:text-5xl">{t("recruit.jobs.hero")}</h1>
         </div>
       </section>
 
       {/* White gap */}
-      <div className="h-24 bg-white" />
+      <div className="h-12 bg-white md:h-24" />
 
       {/* Main Content */}
-      <section className="px-4 py-12 md:px-8">
+      <section className="px-4 py-8 md:px-8 md:py-12">
         <div className="mx-auto max-w-6xl">
           {/* Title */}
-          <h2 className="text-center text-2xl font-bold text-[#1a1a2e] md:text-3xl">
+          <h2 className="text-center text-xl font-bold text-[#1a1a2e] md:text-2xl lg:text-3xl">
             {t("recruit.jobs.title")}
           </h2>
 
           {/* Space between title and table */}
-          <div className="h-24" />
+          <div className="h-12 md:h-24" />
 
           {/* Table Section */}
-          <div className="mb-12">
-            <h3 className="mb-6 text-xl font-bold text-[#1a1a2e]">{t("recruit.jobs.table.title")}</h3>
+          <div className="mb-8 md:mb-12">
+            <h3 className="mb-4 text-lg font-bold text-[#1a1a2e] md:mb-6 md:text-xl">{t("recruit.jobs.table.title")}</h3>
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-sm">
+              <table className="w-full min-w-[400px] border-collapse text-xs md:min-w-0 md:text-sm">
                 <thead>
                   <tr className="bg-[#1a1a2e]">
-                    <th className="border-r border-white/30 px-4 py-4 text-center font-medium text-white">{t("recruit.jobs.table.field")}</th>
-                    <th className="px-4 py-4 text-center font-medium text-white">{t("recruit.jobs.table.requirements")}</th>
+                    <th className="border-r border-white/30 px-3 py-3 text-center font-medium text-white md:px-4 md:py-4">{t("recruit.jobs.table.field")}</th>
+                    <th className="px-3 py-3 text-center font-medium text-white md:px-4 md:py-4">{t("recruit.jobs.table.requirements")}</th>
                   </tr>
                 </thead>
                 <tbody className="text-[#555]">
                   {tableData.map((row, index) => (
                     <tr key={index} className="border-b border-[#e0e0e0]">
-                      <td className="border-r border-[#e0e0e0] px-4 py-6 text-center align-top">{row.field}</td>
-                      <td className="px-4 py-6 align-top">
+                      <td className="border-r border-[#e0e0e0] px-3 py-4 text-center align-top md:px-4 md:py-6">{row.field}</td>
+                      <td className="px-3 py-4 align-top md:px-4 md:py-6">
                         <ul className="space-y-1">
                           {row.requirements.map((req, idx) => (
                             <li key={idx}>- {req}</li>
@@ -128,22 +128,22 @@ export default function JobPostingPage() {
           </div>
 
           {/* Notice */}
-          <p className="mb-6 text-center text-base text-[#555]">
+          <p className="mb-4 text-center text-xs text-[#555] md:mb-6 md:text-base">
             {t("recruit.jobs.notice")}
           </p>
           
           {/* How to Apply */}
-          <div className="rounded border border-[#e0e0e0] bg-white p-6">
-            <h4 className="mb-4 text-base font-bold text-[#1a1a2e]">{t("recruit.jobs.apply.title")}</h4>
-            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <p className="text-sm text-[#666]">
+          <div className="rounded border border-[#e0e0e0] bg-white p-4 md:p-6">
+            <h4 className="mb-3 text-sm font-bold text-[#1a1a2e] md:mb-4 md:text-base">{t("recruit.jobs.apply.title")}</h4>
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
+              <p className="text-xs text-[#666] md:text-sm">
                 {t("recruit.jobs.apply.desc")}
               </p>
               <a 
                 href="https://www.jobkorea.co.kr" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="rounded bg-[#5a9bd4] px-6 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-[#4a8bc4]"
+                className="rounded bg-[#5a9bd4] px-4 py-2 text-center text-xs font-medium text-white transition-colors hover:bg-[#4a8bc4] md:px-6 md:text-sm"
               >
                 {t("recruit.jobs.apply.button")}
               </a>
@@ -153,7 +153,7 @@ export default function JobPostingPage() {
       </section>
 
       {/* Footer spacing */}
-      <div className="h-20 bg-white" />
+      <div className="h-12 bg-white md:h-20" />
     </main>
   );
 }

@@ -54,7 +54,7 @@ export default function BranchInfoPage() {
       <Navbar />
 
       {/* Hero Section - 서비스안내 배경 사용 */}
-      <section className="relative h-[220px] w-full">
+      <section className="relative h-[180px] w-full md:h-[220px]">
         <Image
           src="/images/service/kaja-info.jpg"
           alt={language === "ko" ? "거점정보 배경" : "Branch Info Background"}
@@ -64,12 +64,12 @@ export default function BranchInfoPage() {
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-3xl font-medium text-white md:text-4xl">{t("branch.info.hero")}</h1>
+          <h1 className="text-2xl font-medium text-white md:text-3xl lg:text-4xl">{t("branch.info.hero")}</h1>
         </div>
       </section>
 
-      {/* 텀 260px */}
-      <div className="h-[260px] bg-white" />
+      {/* 텀 */}
+      <div className="h-20 bg-white md:h-[260px]" />
 
       {/* 전국 단위 손해사정 인프라 */}
       <section id="infrastructure" className="relative w-full scroll-mt-20">
@@ -79,36 +79,36 @@ export default function BranchInfoPage() {
         >
           <div className="absolute inset-0 bg-[#1a1a2e]/70" />
         </div>
-        <div className="relative z-10 flex flex-col items-center px-8 py-16 text-center md:px-16">
+        <div className="relative z-10 flex flex-col items-center px-4 py-10 text-center md:px-16 md:py-16">
           {/* Top content */}
-          <div className="mb-10">
-            <h2 className="mb-4 text-2xl font-medium text-white md:text-3xl lg:text-4xl">
+          <div className="mb-6 md:mb-10">
+            <h2 className="mb-3 text-xl font-medium text-white md:mb-4 md:text-2xl lg:text-4xl">
               {t("branch.info.title")}
             </h2>
-            <p className="mb-2 text-base text-white/80 md:text-lg">
+            <p className="mb-2 text-sm text-white/80 md:text-lg">
               {t("branch.info.branches")}
             </p>
-            <p className="text-sm text-white/60 md:text-base">
+            <p className="text-xs text-white/60 md:text-base">
               {t("branch.info.desc")}
             </p>
           </div>
 
-          {/* Branch table */}
-          <div className="mx-auto w-full max-w-4xl overflow-hidden rounded bg-[#4a4a4a]/90 p-6 backdrop-blur-sm">
-            <table className="w-full text-center text-sm text-white">
+          {/* Branch table - scrollable on mobile */}
+          <div className="mx-auto w-full max-w-4xl overflow-x-auto rounded bg-[#4a4a4a]/90 p-4 backdrop-blur-sm md:p-6">
+            <table className="w-full min-w-[500px] text-center text-xs text-white md:min-w-0 md:text-sm">
               <thead>
                 <tr className="border-b border-white/20 bg-[#3a6a8a]/80">
-                  <th className="px-3 py-3 font-medium text-[#7dd3fc]">{t("branch.info.team")}</th>
-                  <th className="px-3 py-3 font-medium text-[#7dd3fc]">{t("branch.info.work")}</th>
-                  <th className="px-3 py-3 font-medium text-[#7dd3fc]">{t("branch.info.location")}</th>
+                  <th className="px-2 py-2 font-medium text-[#7dd3fc] md:px-3 md:py-3">{t("branch.info.team")}</th>
+                  <th className="px-2 py-2 font-medium text-[#7dd3fc] md:px-3 md:py-3">{t("branch.info.work")}</th>
+                  <th className="px-2 py-2 font-medium text-[#7dd3fc] md:px-3 md:py-3">{t("branch.info.location")}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10">
                 {branchData.map((row, index) => (
                   <tr key={index} className={index % 2 === 0 ? "bg-[#5a5a5a]/50" : "bg-[#5a5a5a]/30"}>
-                    <td className="px-3 py-2" colSpan={row.work === "" ? 2 : 1}>{row.team}</td>
-                    {row.work !== "" && <td className="px-3 py-2">{row.work}</td>}
-                    <td className="px-3 py-2 text-left">{row.location}</td>
+                    <td className="px-2 py-2 md:px-3" colSpan={row.work === "" ? 2 : 1}>{row.team}</td>
+                    {row.work !== "" && <td className="px-2 py-2 md:px-3">{row.work}</td>}
+                    <td className="px-2 py-2 text-left md:px-3">{row.location}</td>
                   </tr>
                 ))}
               </tbody>
@@ -116,8 +116,8 @@ export default function BranchInfoPage() {
           </div>
 
           {/* Bottom cities */}
-          <div className="mt-10">
-            <p className="text-base text-[#e87a1e] md:text-lg">
+          <div className="mt-6 md:mt-10">
+            <p className="text-sm text-[#e87a1e] md:text-lg">
               {t("branch.info.cities")}
             </p>
           </div>
@@ -125,7 +125,7 @@ export default function BranchInfoPage() {
       </section>
 
       {/* Footer spacing */}
-      <div className="h-20 bg-white" />
+      <div className="h-12 bg-white md:h-20" />
     </main>
   );
 }
