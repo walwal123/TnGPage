@@ -53,7 +53,7 @@ export default function CompanyLocationPage() {
                 {t("company.location.address.value")}
               </p>
               <p className="text-[#5a9bd4]">
-                Tel : 070-7464-1151
+                Tel : 070-7464-1151(곽팀장), 02-741-0056 (대표전화)
               </p>
             </div>
           </div>
@@ -71,8 +71,14 @@ export default function CompanyLocationPage() {
                 </h3>
                 <div className="ml-4 space-y-2">
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex min-w-[80px] items-center justify-center rounded bg-[#996CAC] px-3 py-1 text-sm font-medium text-white">
-                      {t("company.location.line5")}
+                    <span className="inline-flex min-w-[80px] items-center justify-center rounded bg-[#263C96] px-3 py-1 text-sm font-medium text-white">
+                      {t("company.location.line1")}
+                    </span>
+                    <span className="text-sm text-[#333]">{t("company.location.exit12")}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex min-w-[80px] items-center justify-center rounded bg-[#3CB44A] px-3 py-1 text-sm font-medium text-white">
+                      {t("company.location.line2")}
                     </span>
                     <span className="text-sm text-[#333]">{t("company.location.exit4")}</span>
                   </div>
@@ -83,15 +89,15 @@ export default function CompanyLocationPage() {
                     <span className="text-sm text-[#333]">{t("company.location.exit4")}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex min-w-[80px] items-center justify-center rounded bg-[#00A84D] px-3 py-1 text-sm font-medium text-white">
-                      {t("company.location.line1")}
+                    <span className="inline-flex min-w-[80px] items-center justify-center rounded bg-[#996CAC] px-3 py-1 text-sm font-medium text-white">
+                      {t("company.location.line5")}
                     </span>
-                    <span className="text-sm text-[#333]">{t("company.location.exit12")}</span>
+                    <span className="text-sm text-[#333]">{t("company.location.exit4")}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="mb-6">
+              <div>
                 <h3 className="mb-3 flex items-center gap-2 font-medium text-[#1a1a2e]">
                   <span className="text-[#5a9bd4]">●</span> {t("company.location.bus")}
                 </h3>
@@ -114,21 +120,6 @@ export default function CompanyLocationPage() {
                       {t("company.location.express")}
                     </span>
                     <span className="text-sm text-[#333]">1112, 1162</span>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="mb-3 flex items-center gap-2 font-medium text-[#1a1a2e]">
-                  <span className="text-[#5a9bd4]">●</span> {t("company.location.village.bus")}
-                </h3>
-                <p className="mb-3 ml-4 text-sm text-[#666]">{t("company.location.village.stop")}</p>
-                <div className="ml-4 space-y-2">
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex min-w-[60px] items-center justify-center rounded bg-[#5BB025] px-3 py-1 text-sm font-medium text-white">
-                      {t("company.location.village")}
-                    </span>
-                    <span className="text-sm text-[#333]">종로09</span>
                   </div>
                 </div>
               </div>

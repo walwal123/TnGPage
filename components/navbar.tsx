@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useLanguage } from "@/lib/language-context";
 
@@ -8,6 +9,10 @@ export default function Navbar() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [isNavHovered, setIsNavHovered] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const pathname = usePathname();
+  
+  // Check if we're on a detail page (not the main page)
+  const isDetailPage = pathname !== "/";
 
   const menuItems = [
     {
@@ -70,7 +75,7 @@ export default function Navbar() {
       {/* Main navbar */}
       <div
         className={`transition-all duration-300 ${
-          isNavHovered
+          isNavHovered || isDetailPage
             ? "bg-white/95 backdrop-blur-sm shadow-md"
             : "bg-transparent"
         }`}
@@ -88,7 +93,7 @@ export default function Navbar() {
             />
             <span
               className={`text-2xl font-medium tracking-tight transition-colors duration-300 ${
-                isNavHovered ? "text-[#1a1a2e]" : "text-white"
+                isNavHovered || isDetailPage ? "text-[#1a1a2e]" : "text-white"
               }`}
             >
               {t("nav.logo")}
@@ -106,10 +111,10 @@ export default function Navbar() {
                 <button
                   className={`w-full py-3 text-lg font-normal tracking-wide transition-colors duration-200 border-b-2 ${
                     hoveredMenu === item.key
-                      ? isNavHovered
+                      ? isNavHovered || isDetailPage
                         ? "text-[#e87a1e] border-[#e87a1e]"
                         : "text-[#f0a050] border-[#f0a050]"
-                      : isNavHovered
+                      : isNavHovered || isDetailPage
                       ? "text-[#1a1a2e] border-transparent hover:text-[#e87a1e]"
                       : "text-[#6eaaef] border-transparent hover:text-white"
                   }`}
@@ -124,7 +129,7 @@ export default function Navbar() {
           <button
             onClick={toggleLanguage}
             className={`absolute right-6 flex items-center rounded px-2 py-1 text-xs font-medium transition-all duration-200 lg:right-10 ${
-              isNavHovered
+              isNavHovered || isDetailPage
                 ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 : "bg-white/20 text-white/90 hover:bg-white/30"
             }`}

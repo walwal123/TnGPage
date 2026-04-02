@@ -9,7 +9,7 @@ export default function BranchInfoPage() {
 
   const branchDataKo = [
     { team: "본사", work: "", location: "서울 종로구 창경궁로 109" },
-    { team: "소비자보호센터", work: "", location: "서울 종로구 창경궁로 109, 전화번호 070-7464-1151" },
+    { team: "소비자보호센터", work: "", location: "서울 종로구 창경궁로 109" },
     { team: "화재/재물팀", work: "재물", location: "서울 영등포구 경인로 775" },
     { team: "경인팀", work: "인보험", location: "인천 서구 봉오재3로110번길 7" },
     { team: "경기남부팀", work: "인보험", location: "경기 안양시 동안구 엘에스로 76" },
@@ -20,6 +20,7 @@ export default function BranchInfoPage() {
     { team: "전북팀", work: "인보험", location: "전북 전주시 완산구 홍산남로 52" },
     { team: "광주팀", work: "인보험", location: "광주 북구 첨단연신로 15" },
     { team: "광주팀", work: "재물/배상", location: "광주 북구 첨단연신로 88" },
+    { team: "대구팀", work: "재물/배상", location: "대구 북구 환성정길 12-24" },
     { team: "대구팀", work: "인보험", location: "대구 북구 환성정길 12-24" },
     { team: "부산팀", work: "인보험", location: "부산 부산진구 신암로 66" },
     { team: "부산팀", work: "재물/배상", location: "부산 동구 중앙대로 263" },
@@ -28,7 +29,7 @@ export default function BranchInfoPage() {
 
   const branchDataEn = [
     { team: "Headquarters", work: "", location: "109 Changgyeonggung-ro, Jongno-gu, Seoul" },
-    { team: "Consumer Protection Center", work: "", location: "109 Changgyeonggung-ro, Jongno-gu, Seoul, Tel: 070-7464-1151" },
+    { team: "Consumer Protection Center", work: "", location: "109 Changgyeonggung-ro, Jongno-gu, Seoul" },
     { team: "Fire/Property Team", work: "Property", location: "775 Gyeongin-ro, Yeongdeungpo-gu, Seoul" },
     { team: "Gyeongin Team", work: "Personal", location: "7 Bongojae 3-ro 110beon-gil, Seo-gu, Incheon" },
     { team: "South Gyeonggi Team", work: "Personal", location: "76 LS-ro, Dongan-gu, Anyang-si, Gyeonggi" },
@@ -39,6 +40,7 @@ export default function BranchInfoPage() {
     { team: "Jeonbuk Team", work: "Personal", location: "52 Hongsannam-ro, Wansan-gu, Jeonju-si, Jeonbuk" },
     { team: "Gwangju Team", work: "Personal", location: "15 Cheomdanyeonsin-ro, Buk-gu, Gwangju" },
     { team: "Gwangju Team", work: "Property/Liability", location: "88 Cheomdanyeonsin-ro, Buk-gu, Gwangju" },
+    { team: "Daegu Team", work: "Property/Liability", location: "12-24 Hwanseongjeong-gil, Buk-gu, Daegu" },
     { team: "Daegu Team", work: "Personal", location: "12-24 Hwanseongjeong-gil, Buk-gu, Daegu" },
     { team: "Busan Team", work: "Personal", location: "66 Sinam-ro, Busanjin-gu, Busan" },
     { team: "Busan Team", work: "Property/Liability", location: "263 Jungang-daero, Dong-gu, Busan" },
