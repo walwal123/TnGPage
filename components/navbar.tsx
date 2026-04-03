@@ -136,8 +136,16 @@ export default function Navbar() {
               className="h-10 w-auto object-contain md:h-16"
               priority
             />
+            {/* Mobile: T&G only, Desktop: full text */}
             <span
-              className={`text-lg font-medium tracking-tight transition-colors duration-300 md:text-2xl ${
+              className={`text-lg font-medium tracking-tight transition-colors duration-300 md:hidden ${
+                showSolidBg ? "text-[#1a1a2e]" : "text-white"
+              }`}
+            >
+              T&G
+            </span>
+            <span
+              className={`hidden text-2xl font-medium tracking-tight transition-colors duration-300 md:inline ${
                 showSolidBg ? "text-[#1a1a2e]" : "text-white"
               }`}
             >
