@@ -136,13 +136,13 @@ export default function Navbar() {
               className="h-10 w-auto object-contain md:h-16"
               priority
             />
-            {/* Mobile: T&G only, Desktop: full text */}
+            {/* Mobile: T&G 손해사정, Desktop: full text */}
             <span
-              className={`text-lg font-medium tracking-tight transition-colors duration-300 md:hidden ${
+              className={`text-base font-medium tracking-tight transition-colors duration-300 md:hidden ${
                 showSolidBg ? "text-[#1a1a2e]" : "text-white"
               }`}
             >
-              T&G
+              T&G 손해사정
             </span>
             <span
               className={`hidden text-2xl font-medium tracking-tight transition-colors duration-300 md:inline ${
@@ -180,17 +180,17 @@ export default function Navbar() {
 
           {/* Right side: Language Toggle + Mobile Menu Button */}
           <div className="absolute right-4 flex items-center gap-2 md:right-6 lg:right-10">
-            {/* Language Toggle Button */}
+            {/* Language Toggle Button - smaller on mobile */}
             <button
               onClick={toggleLanguage}
-              className={`flex items-center rounded px-2 py-1 text-xs font-medium transition-all duration-200 ${
+              className={`flex items-center rounded px-1.5 py-1 text-[10px] font-medium transition-all duration-200 md:px-2 md:text-xs ${
                 showSolidBg
                   ? "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   : "bg-white/20 text-white/90 hover:bg-white/30"
               }`}
             >
-              <span className={language === "ko" ? "font-bold" : "opacity-60"}>한글</span>
-              <span className="mx-1 opacity-40">/</span>
+              <span className={language === "ko" ? "font-bold" : "opacity-60"}>KO</span>
+              <span className="mx-0.5 opacity-40 md:mx-1">/</span>
               <span className={language === "en" ? "font-bold" : "opacity-60"}>EN</span>
             </button>
 
