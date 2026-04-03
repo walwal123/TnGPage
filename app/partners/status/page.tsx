@@ -5,14 +5,14 @@ import Navbar from "@/components/navbar";
 import { useLanguage } from "@/lib/language-context";
 
 const domesticPartners = [
-  { src: "/images/partners/samsung.png", alt: "삼성화재" },
+  { src: "/images/partners/logo-kr.png", alt: "삼성화재" },
   { src: "/images/partners/hyundai.png", alt: "현대해상" },
   { src: "/images/partners/kb.png", alt: "KB손해보험" },
   { src: "/images/partners/db.png", alt: "DB손해보험" },
-  { src: "/images/partners/meritz.png", alt: "메리츠화재" },
-  { src: "/images/partners/hanwha.png", alt: "한화손해보험" },
+  { src: "/images/partners/매리츠.png", alt: "메리츠화재" },
+  { src: "/images/partners/한화손보.png", alt: "한화손해보험" },
   { src: "/images/partners/nh.png", alt: "NH농협손해보험" },
-  { src: "/images/partners/lotte.png", alt: "롯데손해보험" },
+  { src: "/images/partners/롯데.png", alt: "롯데손해보험" },
   { src: "/images/partners/heungkuk.png", alt: "흥국화재" },
   { src: "/images/partners/shinhan.png", alt: "신한EZ손해보험" },
   { src: "/images/partners/suhyup.png", alt: "수협" },
