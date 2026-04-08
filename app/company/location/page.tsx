@@ -3,6 +3,7 @@
 import { MapPin, Train } from "lucide-react";
 import Navbar from "@/components/navbar";
 import { useLanguage } from "@/lib/language-context";
+import KakaoMap from "@/components/kakao-map";
 
 export default function CompanyLocationPage() {
   const { t } = useLanguage();
@@ -30,11 +31,12 @@ export default function CompanyLocationPage() {
       <section className="bg-white px-4">
         <div className="mx-auto max-w-5xl">
           <div className="overflow-hidden rounded-lg border border-[#ddd] shadow-sm">
-            <img
-              src="/images/company/location-map.png"
-              alt="T and G Location Map"
-              className="h-auto w-full"
-            />
+            <div className="h-[300px] w-full md:h-[400px]">
+              <KakaoMap 
+                address="서울특별시 종로구 창경궁로 109" 
+                teamName="T&G손해사정" 
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -53,7 +55,7 @@ export default function CompanyLocationPage() {
                 {t("company.location.address.value")}
               </p>
               <p className="text-sm text-[#5a9bd4] md:text-base">
-                Tel : 070-7464-1151(곽팀장), 02-741-0056 (대표전화)
+                Tel : 02-741-0056 (대표전화)
               </p>
             </div>
           </div>
@@ -74,25 +76,31 @@ export default function CompanyLocationPage() {
                     <span className="inline-flex min-w-[60px] items-center justify-center rounded bg-[#263C96] px-2 py-1 text-xs font-medium text-white md:min-w-[80px] md:px-3 md:text-sm">
                       {t("company.location.line1")}
                     </span>
-                    <span className="text-xs text-[#333] md:text-sm">{t("company.location.exit12")}</span>
+                    <span className="text-xs text-[#333] md:text-sm">{t("company.location.line1.exit11")}</span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 md:gap-3">
+                    <span className="inline-flex min-w-[60px] items-center justify-center rounded bg-[#263C96] px-2 py-1 text-xs font-medium text-white md:min-w-[80px] md:px-3 md:text-sm">
+                      {t("company.location.line1")}
+                    </span>
+                    <span className="text-xs text-[#333] md:text-sm">{t("company.location.line1.exit12")}</span>
                   </div>
                   <div className="flex flex-wrap items-center gap-2 md:gap-3">
                     <span className="inline-flex min-w-[60px] items-center justify-center rounded bg-[#3CB44A] px-2 py-1 text-xs font-medium text-white md:min-w-[80px] md:px-3 md:text-sm">
                       {t("company.location.line2")}
                     </span>
-                    <span className="text-xs text-[#333] md:text-sm">{t("company.location.exit4")}</span>
+                    <span className="text-xs text-[#333] md:text-sm">{t("company.location.line2.exit")}</span>
                   </div>
                   <div className="flex flex-wrap items-center gap-2 md:gap-3">
                     <span className="inline-flex min-w-[60px] items-center justify-center rounded bg-[#EF7C1C] px-2 py-1 text-xs font-medium text-white md:min-w-[80px] md:px-3 md:text-sm">
                       {t("company.location.line3")}
                     </span>
-                    <span className="text-xs text-[#333] md:text-sm">{t("company.location.exit4")}</span>
+                    <span className="text-xs text-[#333] md:text-sm">{t("company.location.line3.exit11")}</span>
                   </div>
                   <div className="flex flex-wrap items-center gap-2 md:gap-3">
                     <span className="inline-flex min-w-[60px] items-center justify-center rounded bg-[#996CAC] px-2 py-1 text-xs font-medium text-white md:min-w-[80px] md:px-3 md:text-sm">
                       {t("company.location.line5")}
                     </span>
-                    <span className="text-xs text-[#333] md:text-sm">{t("company.location.exit4")}</span>
+                    <span className="text-xs text-[#333] md:text-sm">{t("company.location.line5.exit11")}</span>
                   </div>
                 </div>
               </div>

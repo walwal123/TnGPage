@@ -38,7 +38,7 @@ const historyDataKo = [
   },
   {
     year: "2015",
-    events: ["AIA손해보험 손해사정위임계약 체결"],
+    events: ["AIA 생명 손해사정위임계약 체결"],
   },
   {
     year: "2016",
@@ -127,7 +127,7 @@ const historyDataEn = [
   },
   {
     year: "2015",
-    events: ["Signed contract with AIA Insurance"],
+    events: ["Signed contract with AIA Life"],
   },
   {
     year: "2016",
