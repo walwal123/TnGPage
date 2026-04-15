@@ -7,10 +7,10 @@ import './globals.css'
 const notoSansKR = Noto_Sans_KR({ subsets: ["latin"], weight: ["300", "400", "500", "700", "900"] });
 
 export const metadata: Metadata = {
-  title: 'T&G 손해사정 Group',
+  title: '티앤지손해사정 | T&G 손해사정 그룹 공식 홈페이지',
   description: '대한민국 손해사정의 기준을 세우는 No1. 손해사정 파트너 - T&G 손해사정 그룹',
   generator: 'v0.app',
-  keywords: ["티앤지손해사정", "손해사정", "TNG", "티앤지", "티앤지손해사정그룹"],
+  keywords: ["티앤지손해사정", "손해사정", "TNG", "티앤지", "티앤지손해사정그룹", "T&G 손해사정" ],
   icons: {
     icon: [
       {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/icon.png',
   },
 }
 
